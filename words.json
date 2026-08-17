@@ -1,0 +1,1589 @@
+{
+ "week": "Week 1 · Unit 1",
+ "generated": "2026-08-17",
+ "test": {
+  "date": "17 Aug 2026",
+  "score": "5/25",
+  "tested": [
+   "p03",
+   "p04",
+   "p05",
+   "p06",
+   "p07",
+   "p08",
+   "p09",
+   "p10",
+   "p11",
+   "p12",
+   "p13",
+   "p15",
+   "p16",
+   "l01",
+   "l02",
+   "l03",
+   "l04",
+   "l05",
+   "l06",
+   "l07",
+   "l08",
+   "l09",
+   "l10",
+   "l11",
+   "l12"
+  ],
+  "correct": [
+   "p07",
+   "p13",
+   "l02",
+   "l06",
+   "l08"
+  ]
+ },
+ "words": [
+  {
+   "id": "n01",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Australia",
+   "vi": "Úc",
+   "focus": [
+    "stra"
+   ],
+   "nat": "Australian",
+   "natFocus": [
+    "lian"
+   ],
+   "lang": "English"
+  },
+  {
+   "id": "n02",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Brazil",
+   "vi": "Bra-xin",
+   "focus": [
+    "z"
+   ],
+   "nat": "Brazilian",
+   "natFocus": [
+    "ilian"
+   ],
+   "lang": "Portuguese",
+   "note": "Nationality ends <b>-ian</b>: Brazil + ian = Brazil<b>ian</b>.",
+   "flag": {
+    "src": "elena",
+    "wrote": "Brazilion",
+    "right": "Brazilian",
+    "target": "nat",
+    "text": "You wrote <b>Brazilion</b> with -ion. It is <b>-ian</b>, like Ital<b>ian</b> and Canad<b>ian</b>."
+   }
+  },
+  {
+   "id": "n03",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Canada",
+   "vi": "Ca-na-đa",
+   "focus": [
+    "ada"
+   ],
+   "nat": "Canadian",
+   "natFocus": [
+    "dian"
+   ],
+   "lang": "English, French"
+  },
+  {
+   "id": "n04",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Denmark",
+   "vi": "Đan Mạch",
+   "focus": [
+    "nm"
+   ],
+   "nat": "Danish",
+   "natFocus": [
+    "nish"
+   ],
+   "lang": "Danish",
+   "note": "Denmark → <b>Danish</b>: the word loses \"-mark\" and <b>e</b> becomes <b>a</b>."
+  },
+  {
+   "id": "n05",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "England",
+   "vi": "nước Anh",
+   "focus": [
+    "ngl"
+   ],
+   "nat": "English",
+   "natFocus": [
+    "glish"
+   ],
+   "lang": "English"
+  },
+  {
+   "id": "n06",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Finland",
+   "vi": "Phần Lan",
+   "focus": [
+    "Fin"
+   ],
+   "nat": "Finnish",
+   "natFocus": [
+    "nn"
+   ],
+   "lang": "Finnish",
+   "note": "Fin<b>land</b> has one <b>n</b> — but Fi<b>nn</b>ish has two."
+  },
+  {
+   "id": "n07",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Greece",
+   "vi": "Hy Lạp",
+   "focus": [
+    "eece"
+   ],
+   "nat": "Greek",
+   "natFocus": [
+    "eek"
+   ],
+   "lang": "Greek",
+   "note": "Gre<b>ece</b> (country, -ce) → Gr<b>eek</b> (person, -k). Irregular!"
+  },
+  {
+   "id": "n08",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Hungary",
+   "vi": "Hung-ga-ri",
+   "focus": [
+    "gary"
+   ],
+   "nat": "Hungarian",
+   "natFocus": [
+    "garian"
+   ],
+   "lang": "Hungarian",
+   "note": "Hun<b>gary</b> ends <b>-ary</b> (like Janu<b>ary</b>), not -ery."
+  },
+  {
+   "id": "n09",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Italy",
+   "vi": "Ý",
+   "focus": [
+    "taly"
+   ],
+   "nat": "Italian",
+   "natFocus": [
+    "lian"
+   ],
+   "lang": "Italian"
+  },
+  {
+   "id": "n10",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Japan",
+   "vi": "Nhật Bản",
+   "focus": [
+    "pan"
+   ],
+   "nat": "Japanese",
+   "natFocus": [
+    "ese"
+   ],
+   "lang": "Japanese"
+  },
+  {
+   "id": "n11",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Korea",
+   "vi": "Triều Tiên / Hàn Quốc",
+   "focus": [
+    "orea"
+   ],
+   "nat": "Korean",
+   "natFocus": [
+    "rean"
+   ],
+   "lang": "Korean"
+  },
+  {
+   "id": "n12",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Lebanon",
+   "vi": "Li-băng",
+   "focus": [
+    "anon"
+   ],
+   "nat": "Lebanese",
+   "natFocus": [
+    "ese"
+   ],
+   "lang": "Arabic",
+   "note": "Leban<b>on</b> (country) → Leban<b>ese</b> (person).",
+   "flag": {
+    "src": "teacher",
+    "wrote": "language = Lebanese",
+    "right": "language = Arabic",
+    "text": "The book lists the <b>language</b> as \"Lebanese\". There is no Lebanese language — people in Lebanon speak <b>Arabic</b> (and often French/English). <i>Lebanese</i> is only the nationality."
+   }
+  },
+  {
+   "id": "n13",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Malaysia",
+   "vi": "Ma-lai-xi-a",
+   "focus": [
+    "lay"
+   ],
+   "nat": "Malaysian",
+   "natFocus": [
+    "lay"
+   ],
+   "lang": "Malay",
+   "note": "Ma-<b>lay</b>-sia — hidden inside it is the language, <b>Malay</b>.",
+   "flag": {
+    "src": "elena",
+    "wrote": "Mapaysia / Mapaysian",
+    "right": "Malaysia / Malaysian",
+    "trap": "Mapaysia",
+    "text": "You wrote <b>P</b> instead of <b>L</b> twice. It is Ma<b>l</b>aysia and Ma<b>l</b>aysian."
+   }
+  },
+  {
+   "id": "n14",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "New Zealand",
+   "vi": "Niu Di-lân",
+   "focus": [
+    "Zea"
+   ],
+   "nat": "New Zealander",
+   "natFocus": [
+    "ander"
+   ],
+   "lang": "English",
+   "note": "The person is a New Zealand<b>er</b> (informally a \"Kiwi\"). Language: <b>English</b> (and Māori)."
+  },
+  {
+   "id": "n15",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Oman",
+   "vi": "Ô-man",
+   "focus": [
+    "Om"
+   ],
+   "nat": "Omani",
+   "natFocus": [
+    "ni"
+   ],
+   "lang": "Arabic",
+   "note": "Gulf countries usually add just <b>-i</b>: Oman<b>i</b>, Qatar<b>i</b>, Iraq<b>i</b>."
+  },
+  {
+   "id": "n16",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "the Philippines",
+   "alt": [
+    "philippines"
+   ],
+   "vi": "Phi-líp-pin",
+   "focus": [
+    "lipp"
+   ],
+   "nat": "Filipino",
+   "natFocus": [
+    "Fil"
+   ],
+   "lang": "Filipino (Tagalog)",
+   "note": "Country = <b>Ph</b>i<b>lipp</b>ines (Ph, one L, double P). Person = <b>F</b>ilipino (F, one L, one P). A woman is a <b>Filipina</b>.",
+   "flag": {
+    "src": "elena",
+    "wrote": "Phillipines / Phillipino / Phillipina",
+    "right": "the Philippines / Filipino",
+    "trap": "Phillipines",
+    "text": "Two slips: you doubled the <b>L</b> (it is one L, then double P), and the person is spelled with <b>F</b>: <b>F</b>ilipino. Your third column also needs the language, which is <b>Filipino</b>."
+   }
+  },
+  {
+   "id": "n17",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Qatar",
+   "vi": "Ca-ta",
+   "focus": [
+    "Qa"
+   ],
+   "nat": "Qatari",
+   "natFocus": [
+    "ri"
+   ],
+   "lang": "Arabic"
+  },
+  {
+   "id": "n18",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Russia",
+   "vi": "Nga",
+   "focus": [
+    "ss"
+   ],
+   "nat": "Russian",
+   "natFocus": [
+    "ss"
+   ],
+   "lang": "Russian",
+   "note": "One <b>R</b> at the front, double <b>S</b> in the middle: R-u-<b>ss</b>-i-a.",
+   "flag": {
+    "src": "elena",
+    "wrote": "Rrussian",
+    "right": "Russian",
+    "target": "nat",
+    "text": "You started with two Rs. Only <b>one R</b>: <b>R</b>ussian."
+   }
+  },
+  {
+   "id": "n19",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "South Korea",
+   "vi": "Hàn Quốc",
+   "focus": [
+    "Korea"
+   ],
+   "nat": "South Korean",
+   "natFocus": [
+    "rean"
+   ],
+   "lang": "Korean",
+   "flag": {
+    "src": "teacher",
+    "wrote": "language = South Korean",
+    "right": "language = Korean",
+    "text": "The book lists the <b>language</b> as \"South Korean\". The language is simply <b>Korean</b> — the \"South\" only describes the country and the people."
+   }
+  },
+  {
+   "id": "n20",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Thailand",
+   "vi": "Thái Lan",
+   "focus": [
+    "Thai"
+   ],
+   "nat": "Thai",
+   "natFocus": [
+    "Thai"
+   ],
+   "lang": "Thai",
+   "note": "Thailand = <b>Thai</b> + land. Nothing is added for the nationality: <b>Thai</b>."
+  },
+  {
+   "id": "n21",
+   "cat": "nations",
+   "week": "Week 1 · Unit 1",
+   "term": "Uzbekistan",
+   "vi": "U-dơ-bê-ki-xtan",
+   "focus": [
+    "bekis"
+   ],
+   "nat": "Uzbek",
+   "natFocus": [
+    "zbek"
+   ],
+   "lang": "Uzbek",
+   "note": "Same pattern as Kazakhstan → Kazakh. \"Uzbekistani\" is also correct.",
+   "flag": {
+    "src": "elena",
+    "wrote": "Uzbekis (unfinished)",
+    "right": "Uzbek",
+    "target": "nat",
+    "trap": "Uzbekis",
+    "text": "The row was left half-written. Nationality = <b>Uzbek</b>, language = <b>Uzbek</b>."
+   }
+  },
+  {
+   "id": "p01",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "a family of four",
+   "pos": "phrase",
+   "en": "a family with four people in it",
+   "vi": "gia đình bốn người",
+   "focus": [
+    "of"
+   ],
+   "ex": "We are a family of four: my parents, my brother and me."
+  },
+  {
+   "id": "p02",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "exotic",
+   "pos": "adjective",
+   "en": "unusual and interesting, from a faraway country",
+   "vi": "kỳ lạ, mang nét ngoại lai",
+   "focus": [
+    "x",
+    "tic"
+   ],
+   "ex": "The market was full of exotic fruit I had never seen before.",
+   "note": "One <b>x</b>, no <b>k</b>: e-<b>x</b>-o-<b>tic</b>."
+  },
+  {
+   "id": "p03",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "help somebody out",
+   "alt": [
+    "help sb out",
+    "help out"
+   ],
+   "pos": "phrasal verb",
+   "en": "assist somebody, especially when they are busy or in trouble",
+   "vi": "giúp đỡ ai (khi họ gặp khó)",
+   "focus": [
+    "out"
+   ],
+   "ex": "Could you help me out with the washing-up?",
+   "flag": {
+    "src": "elena",
+    "wrote": "help slod out",
+    "right": "help somebody out",
+    "text": "Handwriting slip — the phrase is <b>help somebody out</b> (help sb out)."
+   },
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p04",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "get back into something",
+   "alt": [
+    "get back into",
+    "get back in to"
+   ],
+   "pos": "phrasal verb",
+   "en": "start doing something again after a break",
+   "vi": "quay lại làm gì sau một thời gian nghỉ",
+   "focus": [
+    "into"
+   ],
+   "ex": "After the exams I want to get back into swimming.",
+   "note": "Write <b>into</b> as one word here, not \"in to\".",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p05",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "chill out",
+   "pos": "phrasal verb",
+   "en": "relax completely (informal)",
+   "vi": "thư giãn, nghỉ ngơi",
+   "focus": [
+    "ll"
+   ],
+   "ex": "At the weekend I just chill out with my friends.",
+   "note": "Double <b>L</b>: chi<b>ll</b> out.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p06",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "be keen on",
+   "alt": [
+    "keen on"
+   ],
+   "pos": "expression",
+   "en": "be very enthusiastic about something; like it a lot",
+   "vi": "rất thích, hào hứng với",
+   "focus": [
+    "ee"
+   ],
+   "ex": "My mum is very keen on volleyball.",
+   "note": "k-<b>ee</b>-n (like \"seen\"). Next verb takes <b>-ing</b>: keen on play<b>ing</b>.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p07",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "come up with",
+   "pos": "phrasal verb",
+   "en": "think of an idea, plan or answer",
+   "vi": "nghĩ ra (ý tưởng, kế hoạch)",
+   "focus": [
+    "up with"
+   ],
+   "ex": "She came up with a brilliant idea for the project.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "come up with = have a good idea",
+    "right": "come up with = think of an idea, plan or answer",
+    "text": "Close, but the idea does not have to be <i>good</i> — and you can also come up with a plan, an excuse or an answer. Better: <b>think of</b> or <b>produce an idea or solution</b>."
+   },
+   "tested": 1,
+   "got": 1
+  },
+  {
+   "id": "p08",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "get off",
+   "pos": "phrasal verb",
+   "en": "leave a bus, train or plane (also: to start a journey)",
+   "vi": "xuống (xe, tàu, máy bay)",
+   "focus": [
+    "ff"
+   ],
+   "ex": "We get off at the next stop.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "get off = depart",
+    "right": "get off = leave a bus / train / plane",
+    "text": "\"Depart\" is only half of it. The everyday FCE meaning is <b>to leave a bus / train / plane</b> — the opposite of <b>get on</b>. (For a plane you also \"get off\"; for a car it is <b>get out of</b>.)"
+   },
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p09",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "work something out",
+   "alt": [
+    "work sth out",
+    "work out"
+   ],
+   "pos": "phrasal verb",
+   "en": "solve a problem or calculate an answer",
+   "vi": "giải quyết, tính ra",
+   "focus": [
+    "out"
+   ],
+   "ex": "I could not work out the answer to question 5.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p10",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "let somebody down",
+   "alt": [
+    "let sb down",
+    "let down"
+   ],
+   "pos": "phrasal verb",
+   "en": "disappoint somebody; fail to do what you promised",
+   "vi": "làm ai thất vọng",
+   "focus": [
+    "down"
+   ],
+   "ex": "You can trust Ana — she will never let you down.",
+   "note": "The noun is a <b>let-down</b>. And note: \"make somebody disappoint<b>ed</b>\" needs the <b>-ed</b>.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p11",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "rely on",
+   "pos": "phrasal verb",
+   "en": "depend on; trust somebody to do something",
+   "vi": "dựa vào, tin cậy vào",
+   "focus": [
+    "ly"
+   ],
+   "ex": "I rely on my sister to wake me up.",
+   "note": "rely → rel<b>ies</b>, rel<b>ied</b>, re<b>li</b>able: the <b>y</b> becomes <b>i</b>.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p12",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "fall out with somebody",
+   "alt": [
+    "fall out with",
+    "fall out with sb",
+    "fall out"
+   ],
+   "pos": "phrasal verb",
+   "en": "argue with somebody and stop being friends",
+   "vi": "cãi nhau và mất lòng nhau",
+   "focus": [
+    "ll"
+   ],
+   "ex": "They fell out with each other over a silly joke.",
+   "note": "Past tense: <b>fell</b> out with. Noun: a <b>falling-out</b>.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p13",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "hit it off",
+   "pos": "expression",
+   "en": "like each other as soon as you meet",
+   "vi": "hợp nhau ngay từ đầu",
+   "focus": [
+    "it off"
+   ],
+   "ex": "We hit it off straight away and became best friends.",
+   "note": "The <b>it</b> never changes: we hit <b>it</b> off, they hit <b>it</b> off.",
+   "tested": 1,
+   "got": 1
+  },
+  {
+   "id": "p14",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "take after somebody",
+   "alt": [
+    "take after",
+    "take after sb"
+   ],
+   "pos": "phrasal verb",
+   "en": "resemble an older member of your family",
+   "vi": "giống (bố/mẹ, người lớn trong nhà)",
+   "focus": [
+    "after"
+   ],
+   "ex": "Elena takes after her mother — they have the same eyes.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "look out for somebody = resemble",
+    "right": "take after somebody = resemble",
+    "text": "The book gave \"resemble\" to the wrong phrasal verb. The verb that means <b>resemble a relative</b> is <b>take after somebody</b>. <i>Look out for</i> means to watch out for / protect. Learn the pair together."
+   }
+  },
+  {
+   "id": "p15",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "sort something out",
+   "alt": [
+    "sort sth out",
+    "sort out"
+   ],
+   "pos": "phrasal verb",
+   "en": "organise something; deal with a problem successfully",
+   "vi": "sắp xếp, giải quyết cho xong",
+   "focus": [
+    "sort"
+   ],
+   "ex": "I need to sort out my school bag before Monday.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "sort out = work out",
+    "right": "sort out = organise / deal with",
+    "text": "They overlap but are not the same. <b>Work out</b> = calculate or find the answer. <b>Sort out</b> = tidy / organise, or fix a practical problem."
+   },
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p16",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "stand somebody up",
+   "alt": [
+    "stand sb up",
+    "stand up"
+   ],
+   "pos": "phrasal verb",
+   "en": "fail to meet somebody you arranged to meet",
+   "vi": "cho ai leo cây (không đến chỗ hẹn)",
+   "focus": [
+    "up"
+   ],
+   "ex": "He stood me up — I waited outside the cinema for an hour!",
+   "note": "Past tense: <b>stood</b> somebody up.",
+   "flag": {
+    "src": "elena",
+    "wrote": "stand somebody out",
+    "right": "stand somebody up",
+    "text": "You wrote <b>out</b>. It is stand somebody <b>UP</b>. (\"Stand out\" exists but means <i>be noticeable</i> — a completely different phrase.)"
+   },
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "p17",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "see somebody off",
+   "alt": [
+    "see sb off",
+    "see off"
+   ],
+   "pos": "phrasal verb",
+   "en": "go to the station or airport to say goodbye to somebody",
+   "vi": "đi tiễn ai",
+   "focus": [
+    "ff"
+   ],
+   "ex": "We went to the airport to see my cousin off."
+  },
+  {
+   "id": "p18",
+   "cat": "pv1",
+   "week": "Week 1 · Unit 1",
+   "term": "follow in somebody's footsteps",
+   "alt": [
+    "follow in sb's footsteps",
+    "follow in somebodys footsteps",
+    "follow in footsteps"
+   ],
+   "pos": "expression",
+   "en": "do the same job or the same thing as somebody before you",
+   "vi": "nối gót, theo bước chân của ai",
+   "focus": [
+    "footsteps"
+   ],
+   "ex": "She followed in her father’s footsteps and became a doctor.",
+   "note": "<b>footsteps</b> = one word, always <b>plural</b>. Keep the apostrophe: somebody<b>’s</b>.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "follow in sb's footsteps = imitate",
+    "right": "follow in sb's footsteps = follow the same career/path",
+    "text": "\"Imitate\" is too wide — it can mean copying anyone. This phrase is specifically about <b>following the same career or path as somebody in your family</b>."
+   }
+  },
+  {
+   "id": "l01",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look at",
+   "pos": "phrasal verb",
+   "en": "turn your eyes towards something",
+   "vi": "nhìn vào",
+   "focus": [
+    "at"
+   ],
+   "ex": "Look at this photo of my grandmother.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l02",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look for",
+   "pos": "phrasal verb",
+   "en": "try to find something",
+   "vi": "tìm kiếm",
+   "focus": [
+    "for"
+   ],
+   "ex": "I am looking for my pencil case.",
+   "tested": 1,
+   "got": 1
+  },
+  {
+   "id": "l03",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look out",
+   "pos": "phrasal verb",
+   "en": "be careful — watch for danger",
+   "vi": "coi chừng, cẩn thận",
+   "focus": [
+    "out"
+   ],
+   "ex": "Look out — there is a car coming!",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l04",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look out for somebody",
+   "alt": [
+    "look out for",
+    "look out for sb"
+   ],
+   "pos": "phrasal verb",
+   "en": "watch and take care of somebody; keep your eyes open for them",
+   "vi": "trông chừng, để ý bảo vệ ai",
+   "focus": [
+    "out for"
+   ],
+   "ex": "Big brothers should look out for their little sisters.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "look out for somebody = resemble",
+    "right": "look out for = watch for / protect",
+    "text": "Wrong meaning in the book. Look out for = <b>watch for / protect</b>. The one that means resemble is <b>take after somebody</b>."
+   },
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l05",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look after",
+   "pos": "phrasal verb",
+   "en": "take care of somebody or something",
+   "vi": "chăm sóc, trông coi",
+   "focus": [
+    "after"
+   ],
+   "ex": "I look after my little brother on Fridays.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "look after = mong chờ",
+    "right": "look after = chăm sóc",
+    "text": "\"Mong chờ\" belongs to <b>look forward to</b>. Look after = <b>chăm sóc</b> (take care of)."
+   },
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l06",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look alike",
+   "pos": "phrasal verb",
+   "en": "look the same as each other",
+   "vi": "trông giống nhau",
+   "focus": [
+    "alike"
+   ],
+   "ex": "My mum and I look alike.",
+   "note": "<b>alike</b> is one word and comes after the people: they <b>look alike</b>.",
+   "tested": 1,
+   "got": 1
+  },
+  {
+   "id": "l07",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look into",
+   "pos": "phrasal verb",
+   "en": "investigate something; examine it carefully",
+   "vi": "điều tra, xem xét kỹ",
+   "focus": [
+    "into"
+   ],
+   "ex": "The teacher promised to look into the problem.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "look into = nhìn vào",
+    "right": "look into = điều tra, xem xét",
+    "text": "\"Nhìn vào\" is <b>look at</b>. Look into = <b>điều tra / xem xét</b> (investigate)."
+   },
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l08",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look forward to",
+   "pos": "phrasal verb",
+   "en": "feel happy and excited about something that is going to happen",
+   "vi": "mong chờ, háo hức",
+   "focus": [
+    "forward"
+   ],
+   "ex": "I am looking forward to the summer holidays.",
+   "note": "The next verb takes <b>-ing</b>: look forward to see<b>ing</b> you.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "look forward to = hồi hộp",
+    "right": "look forward to = mong chờ, háo hức",
+    "text": "\"Hồi hộp\" means nervous / tense. Look forward to is <b>positive</b>: <b>mong chờ, háo hức</b>."
+   },
+   "tested": 1,
+   "got": 1
+  },
+  {
+   "id": "l09",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look up to somebody",
+   "alt": [
+    "look up to",
+    "look up to sb"
+   ],
+   "pos": "phrasal verb",
+   "en": "admire and respect somebody",
+   "vi": "kính trọng, ngưỡng mộ",
+   "focus": [
+    "up to"
+   ],
+   "opp": "look down on somebody",
+   "ex": "I look up to my grandmother — she is so brave.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l10",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look down on somebody",
+   "alt": [
+    "look down on",
+    "look down on sb"
+   ],
+   "pos": "phrasal verb",
+   "en": "think you are better than somebody; despise them",
+   "vi": "coi thường ai",
+   "focus": [
+    "down on"
+   ],
+   "opp": "look up to somebody",
+   "ex": "Never look down on people who are different from you.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l11",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look back at",
+   "pos": "phrasal verb",
+   "en": "recall something; think again about a past moment",
+   "vi": "nhớ lại, xem lại",
+   "focus": [
+    "back at"
+   ],
+   "ex": "Let us look back at what we learned last week.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "l12",
+   "cat": "look",
+   "week": "Week 1 · Unit 1",
+   "term": "look back on",
+   "pos": "phrasal verb",
+   "en": "reminisce — remember a whole period of your life",
+   "vi": "hồi tưởng (một giai đoạn)",
+   "focus": [
+    "back on"
+   ],
+   "ex": "I will look back on these school years and smile.",
+   "note": "look back <b>at</b> a moment or detail · look back <b>on</b> a whole period.",
+   "tested": 1,
+   "got": 0
+  },
+  {
+   "id": "a01",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "cooperative",
+   "pos": "adj +",
+   "en": "willing to work together and help",
+   "vi": "có tinh thần hợp tác",
+   "focus": [
+    "oo",
+    "tive"
+   ],
+   "opp": "uncooperative",
+   "ex": "She is very cooperative in group work.",
+   "note": "Double <b>o</b>: c-<b>oo</b>-perative. Opposite adds <b>un-</b>."
+  },
+  {
+   "id": "a02",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "mature",
+   "pos": "adj +",
+   "en": "behaving in a sensible, grown-up way",
+   "vi": "chín chắn, trưởng thành",
+   "focus": [
+    "ture"
+   ],
+   "opp": "immature",
+   "ex": "He is very mature for a fifteen-year-old.",
+   "note": "Opposite takes <b>im-</b>, not un-: <b>im</b>mature. Also the opposite of <b>childish</b>."
+  },
+  {
+   "id": "a03",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "thoughtful",
+   "pos": "adj +",
+   "en": "kind — thinks about what other people need",
+   "vi": "chu đáo, tâm lý",
+   "focus": [
+    "ough",
+    "tful"
+   ],
+   "opp": "thoughtless",
+   "ex": "What a thoughtful present!",
+   "flag": {
+    "src": "elena",
+    "wrote": "thoughless",
+    "right": "thoughtless",
+    "text": "You dropped the <b>t</b>. It comes from <b>thought</b>: though<b>t</b>ful / though<b>t</b>less."
+   }
+  },
+  {
+   "id": "a04",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "sympathetic",
+   "pos": "adj +",
+   "en": "showing that you understand and care about somebody’s problems",
+   "vi": "biết thông cảm",
+   "focus": [
+    "sym",
+    "thetic"
+   ],
+   "opp": "unsympathetic",
+   "ex": "My teacher was very sympathetic when I was ill.",
+   "note": "Starts <b>sym</b>- with a <b>y</b>, then -pa-<b>thetic</b>."
+  },
+  {
+   "id": "a05",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "hard-working",
+   "alt": [
+    "hardworking"
+   ],
+   "pos": "adj +",
+   "en": "puts a lot of effort into work",
+   "vi": "chăm chỉ, siêng năng",
+   "focus": [
+    "-"
+   ],
+   "opp": "lazy",
+   "ex": "Elena is a hard-working student.",
+   "note": "Usually written with a <b>hyphen</b>. The opposite is <b>lazy</b> — there is no \"un-\" form."
+  },
+  {
+   "id": "a06",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "reliable",
+   "pos": "adj +",
+   "en": "can be trusted to do what they promise",
+   "vi": "đáng tin cậy",
+   "focus": [
+    "li",
+    "able"
+   ],
+   "opp": "unreliable",
+   "ex": "He is the most reliable person on the team.",
+   "note": "From <b>rely</b>: rely → re<b>li</b>able (y→i), ending <b>-able</b>.",
+   "flag": {
+    "src": "elena",
+    "wrote": "unnelidble",
+    "right": "unreliable",
+    "trap": "unnelidble",
+    "drillTerm": "unreliable",
+    "text": "The letters got tangled. Build it in pieces: <b>un</b> + <b>reli</b> + <b>able</b> = unreliable."
+   }
+  },
+  {
+   "id": "a07",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "energetic",
+   "pos": "adj +",
+   "en": "full of energy; very active",
+   "vi": "tràn đầy năng lượng",
+   "focus": [
+    "ner",
+    "getic"
+   ],
+   "opp": "lethargic / not very energetic",
+   "ex": "My grandfather is more energetic than me!",
+   "note": "Noun: <b>energy</b> → adjective <b>energetic</b> (the stress moves to -GET-).",
+   "flag": {
+    "src": "teacher",
+    "wrote": "unenergetic",
+    "right": "not very energetic / lethargic",
+    "text": "\"Unenergetic\" is not natural English. Use <b>not very energetic</b>, <b>lazy</b>, or (more formal) <b>lethargic</b>."
+   }
+  },
+  {
+   "id": "a08",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "patient",
+   "pos": "adj +",
+   "en": "able to wait calmly without getting annoyed",
+   "vi": "kiên nhẫn",
+   "focus": [
+    "tient"
+   ],
+   "opp": "impatient",
+   "ex": "You must be patient with young children.",
+   "note": "Ends <b>-tient</b>. Opposite takes <b>im-</b>. Noun: <b>patience</b>.",
+   "flag": {
+    "src": "elena",
+    "wrote": "nhiên nhẫn",
+    "right": "kiên nhẫn (Vietnamese)",
+    "noDrill": 1,
+    "text": "Small slip in the Vietnamese too — it is <b>kiên nhẫn</b>."
+   }
+  },
+  {
+   "id": "a09",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "responsible",
+   "pos": "adj +",
+   "en": "can be trusted to do the right thing",
+   "vi": "có trách nhiệm",
+   "focus": [
+    "spon",
+    "sible"
+   ],
+   "opp": "irresponsible",
+   "ex": "She is responsible for locking the classroom.",
+   "note": "Ends <b>-sible</b>, not -sable. Opposite takes <b>ir-</b>.",
+   "flag": {
+    "src": "elena",
+    "wrote": "irresponsiblee",
+    "right": "irresponsible",
+    "drillTerm": "irresponsible",
+    "text": "Only <b>one e</b> at the end: irresponsibl<b>e</b>."
+   }
+  },
+  {
+   "id": "a10",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "enthusiastic",
+   "pos": "adj +",
+   "en": "showing a lot of excitement and interest",
+   "vi": "nhiệt tình, hào hứng",
+   "focus": [
+    "thu",
+    "iastic"
+   ],
+   "opp": "unenthusiastic",
+   "ex": "The class was enthusiastic about the trip.",
+   "note": "en-<b>thu</b>-si-<b>as</b>-tic. Noun: <b>enthusiasm</b>. Same idea as <b>be keen on</b>."
+  },
+  {
+   "id": "a11",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "sensitive",
+   "pos": "adj ±",
+   "en": "aware of other people’s feelings; also easily upset",
+   "vi": "nhạy cảm, tinh tế",
+   "focus": [
+    "sen",
+    "sitive"
+   ],
+   "opp": "insensitive",
+   "ex": "Be careful — he is quite sensitive about his height.",
+   "note": "Opposite takes <b>in-</b>: <b>in</b>sensitive.",
+   "flag": {
+    "src": "elena",
+    "wrote": "sesitive",
+    "right": "sensitive",
+    "text": "You dropped the <b>n</b>. Say it in syllables: <b>sen</b>-si-tive."
+   }
+  },
+  {
+   "id": "a12",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "caring",
+   "pos": "adj +",
+   "en": "kind and looking after other people",
+   "vi": "quan tâm, biết chăm sóc",
+   "focus": [
+    "ring"
+   ],
+   "opp": "uncaring",
+   "ex": "Nurses are usually very caring people.",
+   "note": "care → car<b>ing</b>: drop the <b>e</b> before -ing."
+  },
+  {
+   "id": "a13",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "organised",
+   "alt": [
+    "organized"
+   ],
+   "pos": "adj +",
+   "en": "plans well and keeps things tidy",
+   "vi": "ngăn nắp, có tổ chức",
+   "focus": [
+    "ganised"
+   ],
+   "opp": "disorganised",
+   "ex": "Keep your notes organised and revision is easy.",
+   "note": "British <b>-ised</b>, American <b>-ized</b> — both accepted in the exam. Opposite: <b>dis</b>organised."
+  },
+  {
+   "id": "a14",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "cheeky",
+   "pos": "adj –",
+   "en": "slightly rude or disrespectful, but often in a funny way",
+   "vi": "nghịch ngợm, hơi hỗn (kiểu vui)",
+   "focus": [
+    "eek"
+   ],
+   "opp": "polite",
+   "ex": "That was a cheeky answer to give your teacher!",
+   "note": "Spelling: ch-<b>eek</b>-y (like \"cheek\", your face).",
+   "flag": {
+    "src": "teacher",
+    "wrote": "cheeky = láu cá",
+    "right": "cheeky = nghịch ngợm, hơi hỗn",
+    "text": "\"Láu cá\" means sly or crafty — that is <b>sly / crafty / cunning</b>. Cheeky is cheerfully rude: <b>nghịch ngợm, hơi hỗn</b>. It is often affectionate."
+   }
+  },
+  {
+   "id": "a15",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "critical",
+   "pos": "adj –",
+   "en": "always finding faults in other people",
+   "vi": "hay chỉ trích, phê phán",
+   "focus": [
+    "cri",
+    "cal"
+   ],
+   "opp": "complimentary",
+   "ex": "Try not to be too critical of your friends.",
+   "note": "Ends <b>-cal</b>. Verb: <b>criticise</b>. Noun: <b>criticism</b>.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "uncritical",
+    "right": "complimentary / encouraging",
+    "text": "\"Uncritical\" exists, but it means <i>accepting things without questioning them</i> — it is not the natural opposite of a critical person. For personality, use <b>complimentary</b>, <b>encouraging</b> or <b>supportive</b>."
+   }
+  },
+  {
+   "id": "a16",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "irritating",
+   "pos": "adj –",
+   "en": "annoying; making you feel impatient",
+   "vi": "gây khó chịu, làm người khác bực",
+   "focus": [
+    "irri",
+    "tating"
+   ],
+   "opp": "pleasant",
+   "ex": "His habit of tapping the desk is really irritating.",
+   "note": "Double <b>r</b>: i-<b>rr</b>-i-ta-ting. Verb: <b>irritate</b>.",
+   "flag": {
+    "src": "teacher",
+    "wrote": "non-irritating",
+    "right": "pleasant / easy-going",
+    "text": "\"Non-irritating\" is used for creams and shampoo, not people. The opposite of an irritating person is <b>pleasant</b>, <b>easy-going</b> or <b>soothing</b>."
+   }
+  },
+  {
+   "id": "a17",
+   "cat": "person",
+   "week": "Week 1 · Unit 1",
+   "term": "childish",
+   "pos": "adj –",
+   "en": "behaving like a young child (a criticism)",
+   "vi": "trẻ con, ấu trĩ",
+   "focus": [
+    "dish"
+   ],
+   "opp": "mature",
+   "ex": "Stop being childish and apologise.",
+   "note": "child + <b>ish</b>. Careful: <b>childlike</b> is positive (innocent); <b>childish</b> is negative."
+  },
+  {
+   "id": "s01",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "subject",
+   "pos": "noun",
+   "en": "an area you study at school, e.g. maths, history",
+   "vi": "môn học",
+   "focus": [
+    "ject"
+   ],
+   "ex": "My favourite subject is English."
+  },
+  {
+   "id": "s02",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "compass",
+   "pos": "noun",
+   "en": "the tool you use to draw circles (also: for finding north)",
+   "vi": "com-pa",
+   "focus": [
+    "ss"
+   ],
+   "ex": "Use a compass to draw a perfect circle.",
+   "note": "Double <b>s</b>. In maths you can also say <b>a pair of compasses</b>."
+  },
+  {
+   "id": "s03",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "calculator",
+   "pos": "noun",
+   "en": "a small machine for doing sums",
+   "vi": "máy tính (cầm tay)",
+   "focus": [
+    "cu",
+    "ator"
+   ],
+   "ex": "You cannot use a calculator in this test.",
+   "flag": {
+    "src": "elena",
+    "wrote": "calulater",
+    "right": "calculator",
+    "text": "Two slips: the missing <b>c</b> (cal-<b>cu</b>-la-tor) and the ending — it is <b>-or</b>, not -er."
+   }
+  },
+  {
+   "id": "s04",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "pencil case",
+   "pos": "noun",
+   "en": "a small bag you keep pens and pencils in",
+   "vi": "hộp bút",
+   "focus": [
+    "cil"
+   ],
+   "ex": "My pencil case is full of broken pencils.",
+   "flag": {
+    "src": "elena",
+    "wrote": "pencle case",
+    "right": "pencil case",
+    "text": "It is pen-<b>cil</b> (like the pencil you write with) — and <b>two separate words</b>."
+   }
+  },
+  {
+   "id": "s05",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "pencil sharpener",
+   "pos": "noun",
+   "en": "the tool that makes a pencil point sharp",
+   "vi": "gọt bút chì",
+   "focus": [
+    "sharp",
+    "ener"
+   ],
+   "ex": "Has anybody got a pencil sharpener?",
+   "flag": {
+    "src": "elena",
+    "wrote": "pencil sharpenor",
+    "right": "pencil sharpener",
+    "text": "Tools like this usually end <b>-er</b>: sharp<b>ener</b>. (But <b>calculator</b> ends -or — these two are worth learning as a pair.)"
+   }
+  },
+  {
+   "id": "s06",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "rubber",
+   "pos": "noun",
+   "en": "the thing you use to remove pencil marks (US: eraser)",
+   "vi": "cái tẩy, gôm",
+   "focus": [
+    "bb"
+   ],
+   "ex": "Can I borrow your rubber? I made a mistake.",
+   "flag": {
+    "src": "elena",
+    "wrote": "Ruber",
+    "right": "rubber",
+    "text": "Double <b>b</b>: ru<b>bb</b>er. British English = rubber, American English = <b>eraser</b>."
+   }
+  },
+  {
+   "id": "s07",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "uniform",
+   "pos": "noun",
+   "en": "the special clothes all students at a school wear",
+   "vi": "đồng phục",
+   "focus": [
+    "ni",
+    "form"
+   ],
+   "ex": "We have to wear a uniform at my school.",
+   "note": "<b>uni</b> = one + <b>form</b> = shape. One <b>n</b>, no double letters."
+  },
+  {
+   "id": "s08",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "schoolbag",
+   "alt": [
+    "school bag"
+   ],
+   "pos": "noun",
+   "en": "the bag you carry your books to school in",
+   "vi": "cặp sách",
+   "focus": [
+    "ool"
+   ],
+   "ex": "My schoolbag weighs a ton on Mondays."
+  },
+  {
+   "id": "s09",
+   "cat": "school",
+   "week": "Week 1 · Unit 1",
+   "term": "put on",
+   "pos": "phrasal verb",
+   "en": "dress yourself in something",
+   "vi": "mặc vào, đeo vào",
+   "focus": [
+    "on"
+   ],
+   "ex": "Put on your uniform — we are late!",
+   "note": "<b>put on</b> = the action of dressing · <b>wear</b> = the state of having it on."
+  }
+ ],
+ "extraFlags": [
+  {
+   "src": "elena",
+   "wrote": "County",
+   "right": "Country",
+   "text": "The heading of the first column. A <b>county</b> is a region <i>inside</i> a country (like a province). A <b>country</b> is Vietnam, Italy, Japan…"
+  },
+  {
+   "src": "elena",
+   "wrote": "Auxialary verbs",
+   "right": "Auxiliary verbs",
+   "text": "aux-<b>il</b>-i-ary. Two <b>i</b>s in the middle: aux<b>i</b>l<b>i</b>ary."
+  },
+  {
+   "src": "elena",
+   "wrote": "a good ibea",
+   "right": "a good idea",
+   "text": "<b>idea</b> — i-d-e-a. No <b>b</b>."
+  },
+  {
+   "src": "elena",
+   "wrote": "arguo",
+   "right": "argue",
+   "text": "Ends <b>-ue</b>: arg<b>ue</b>. Noun: an <b>argument</b> (careful — no <b>e</b> in argument!)."
+  },
+  {
+   "src": "elena",
+   "wrote": "make someone disappointe",
+   "right": "make someone disappointed",
+   "text": "The adjective needs the full <b>-ed</b>: disappoint<b>ed</b>. One <b>s</b>, double <b>p</b>."
+  }
+ ],
+ "reference": [
+  {
+   "title": "Auxiliary verbs (trợ động từ)",
+   "rows": [
+    [
+     "Present simple",
+     "<b>do / does</b>",
+     "<i>Do</i> you like it? · She <i>doesn’t</i> know."
+    ],
+    [
+     "Present continuous",
+     "<b>am / is / are</b>",
+     "I <i>am</i> studying. · <i>Are</i> they coming?"
+    ],
+    [
+     "Present perfect",
+     "<b>have / has</b>",
+     "I <i>have</i> finished. · He <i>has</i> gone home."
+    ]
+   ]
+  },
+  {
+   "title": "Nationality endings — the four patterns",
+   "rows": [
+    [
+     "<b>-ian / -an</b>",
+     "Brazil→Brazil<b>ian</b> · Italy→Ital<b>ian</b> · Hungary→Hungar<b>ian</b> · Russia→Russ<b>ian</b> · Canada→Canad<b>ian</b> · Malaysia→Malays<b>ian</b> · Australia→Austral<b>ian</b>",
+     ""
+    ],
+    [
+     "<b>-ese</b>",
+     "Japan→Japan<b>ese</b> · Lebanon→Leban<b>ese</b> · China→Chin<b>ese</b> · Portugal→Portugu<b>ese</b>",
+     ""
+    ],
+    [
+     "<b>-ish</b>",
+     "Denmark→Dan<b>ish</b> · Finland→Finn<b>ish</b> · England→Engl<b>ish</b> · Spain→Span<b>ish</b>",
+     ""
+    ],
+    [
+     "<b>-i</b>",
+     "Oman→Oman<b>i</b> · Qatar→Qatar<b>i</b> · Iraq→Iraq<b>i</b> · Pakistan→Pakistan<b>i</b>",
+     ""
+    ]
+   ]
+  },
+  {
+   "title": "Irregular ones to memorise",
+   "rows": [
+    [
+     "Greece",
+     "→ Greek",
+     "not \"Greecian\""
+    ],
+    [
+     "Thailand",
+     "→ Thai",
+     "nothing is added"
+    ],
+    [
+     "New Zealand",
+     "→ New Zealander",
+     "-er, like Londoner"
+    ],
+    [
+     "the Philippines",
+     "→ Filipino / Filipina",
+     "the spelling changes: Ph → F"
+    ],
+    [
+     "Uzbekistan",
+     "→ Uzbek",
+     "like Kazakhstan → Kazakh"
+    ]
+   ]
+  }
+ ]
+}

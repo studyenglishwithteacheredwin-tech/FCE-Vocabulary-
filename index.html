@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e7c6b">
+<title>Elena's FCE Word Lab</title>
+<style>
+/* ============================================================
+   COLOUR SYSTEM
+   Light theme is a warm off-white (no glare, no pure white).
+   Dark theme is a warm charcoal for early or dark car rides.
+   "Auto" follows the tablet's own setting.
+   ============================================================ */
+:root{
+  --bg:#faf6f0; --card:#ffffff; --card2:#faf7f2; --chip:#f3ede4; --chip2:#f1e9dd;
+  --ink:#221f1b; --ink2:#5d5750; --line:#e6ddd0; --line2:#efe7db;
+  --teal:#0e7c6b; --teal-text:#0e7c6b; --teal-soft:#e4f2ee; --teal-line:#bfe0d8; --teal-dark:#0a5c50;
+  --coral:#d94f2b; --coral-ink:#a83a1e; --coral-soft:#fdece6; --coral-line:#f6cdbe; --coral-dark:#a83a1e;
+  --gold:#e8a53c; --gold-ink:#8a5a10; --gold-soft:#fdf2dd; --gold-line:#f2dcae;
+  --violet:#6b4ea8; --violet-ink:#4b3480; --violet-soft:#efe9f9; --violet-line:#ddd0f4;
+  --ok:#1c7a52; --ok-soft:#e3f3ea; --ok-line:#bfe3ce;
+  --mark-bg:#fff3ee; --mark-line:#f3b49a;
+  --btn-ink:#ffffff;
+  --r:18px; --sh:0 2px 0 rgba(34,31,27,.06), 0 10px 26px -18px rgba(34,31,27,.35);
+}
+@media (prefers-color-scheme:dark){
+  html:not([data-theme="light"]){
+    --bg:#15171a; --card:#1e2124; --card2:#24282c; --chip:#2a2f34; --chip2:#22262a;
+    --ink:#ecebe7; --ink2:#a5a29b; --line:#343a40; --line2:#2c3136;
+    --teal:#0f8f77; --teal-text:#54d8bc; --teal-soft:#16332d; --teal-line:#2a5a4f; --teal-dark:#0a6355;
+    --coral:#e2603a; --coral-ink:#ff9d7c; --coral-soft:#39221b; --coral-line:#5d3629; --coral-dark:#a3401f;
+    --gold:#e0a94a; --gold-ink:#f3c477; --gold-soft:#382d17; --gold-line:#584623;
+    --violet:#7d63bd; --violet-ink:#bda8f0; --violet-soft:#252043; --violet-line:#3d3363;
+    --ok:#5ec98f; --ok-soft:#16301f; --ok-line:#2b5b3c;
+    --mark-bg:#3a231c; --mark-line:#8a4a30;
+    --btn-ink:#ffffff;
+    --sh:0 2px 0 rgba(0,0,0,.2), 0 10px 26px -18px rgba(0,0,0,.8);
+  }
+}
+html[data-theme="dark"]{
+  --bg:#15171a; --card:#1e2124; --card2:#24282c; --chip:#2a2f34; --chip2:#22262a;
+  --ink:#ecebe7; --ink2:#a5a29b; --line:#343a40; --line2:#2c3136;
+  --teal:#0f8f77; --teal-text:#54d8bc; --teal-soft:#16332d; --teal-line:#2a5a4f; --teal-dark:#0a6355;
+  --coral:#e2603a; --coral-ink:#ff9d7c; --coral-soft:#39221b; --coral-line:#5d3629; --coral-dark:#a3401f;
+  --gold:#e0a94a; --gold-ink:#f3c477; --gold-soft:#382d17; --gold-line:#584623;
+  --violet:#7d63bd; --violet-ink:#bda8f0; --violet-soft:#252043; --violet-line:#3d3363;
+  --ok:#5ec98f; --ok-soft:#16301f; --ok-line:#2b5b3c;
+  --mark-bg:#3a231c; --mark-line:#8a4a30;
+  --sh:0 2px 0 rgba(0,0,0,.2), 0 10px 26px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font:400 17.5px/1.55 ui-rounded,"SF Pro Rounded",-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  padding-bottom:40px; transition:background .2s;
+}
+#app{max-width:920px;margin:0 auto;padding:0 18px}
+h1,h2,h3{margin:0;line-height:1.2}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input,textarea{font:inherit;color:inherit}
+
+/* ---------- header ---------- */
+header.top{display:flex;align-items:center;gap:14px;padding:20px 2px 14px}
+.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(150deg,var(--teal),#14a08a);
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;flex:none;box-shadow:var(--sh)}
+.brand{flex:1;min-width:0}
+.brand b{display:block;font-size:19px;font-weight:800;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{font-size:13px;color:var(--ink2);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.streak{display:flex;align-items:center;gap:6px;background:var(--gold-soft);border:1px solid var(--gold-line);
+  color:var(--gold-ink);font-weight:700;font-size:14px;padding:8px 12px;border-radius:99px;flex:none}
+.themebtn{width:44px;height:44px;border-radius:12px;background:var(--chip);border:1px solid var(--line);
+  display:grid;place-items:center;font-size:18px;flex:none}
+
+/* ---------- tabs ---------- */
+nav.tabs{display:flex;gap:6px;background:var(--chip2);padding:5px;border-radius:14px;margin-bottom:18px}
+nav.tabs button{flex:1;padding:13px 6px;border-radius:10px;font-weight:700;font-size:15px;color:var(--ink2);
+  display:flex;align-items:center;justify-content:center;gap:6px;min-height:50px}
+nav.tabs button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+
+/* ---------- generic ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--sh);margin-bottom:14px}
+.card.warm{background:var(--gold-soft);border-color:var(--gold-line)}
+.card.hot{background:var(--coral-soft);border-color:var(--coral-line)}
+.row{display:flex;gap:12px;align-items:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.muted{color:var(--ink2)}
+.small{font-size:14px}
+.tiny{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;color:var(--ink2)}
+.center{text-align:center}
+.btn{background:var(--teal);color:var(--btn-ink);font-weight:800;padding:16px 20px;border-radius:14px;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:58px;width:100%;
+  box-shadow:0 2px 0 var(--teal-dark); transition:transform .06s}
+.btn:active{transform:translateY(2px);box-shadow:0 0 0 var(--teal-dark)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.btn.coral{background:var(--coral);box-shadow:0 2px 0 var(--coral-dark)}
+.btn.sm{min-height:48px;padding:11px 16px;width:auto;font-size:15.5px;border-radius:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:6px 11px;border-radius:99px;
+  background:var(--chip);color:var(--ink2);white-space:nowrap}
+.chip.new{background:var(--violet-soft);color:var(--violet-ink)}
+.chip.learn{background:var(--gold-soft);color:var(--gold-ink)}
+.chip.strong{background:var(--ok-soft);color:var(--ok)}
+.chip.trap{background:var(--coral-soft);color:var(--coral-ink)}
+.bar{height:9px;border-radius:99px;background:var(--line2);overflow:hidden}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),#2bb39a);border-radius:99px;transition:width .4s}
+
+/* ---------- home ---------- */
+.hero{display:flex;gap:18px;align-items:center}
+.ring{position:relative;width:112px;height:112px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:26px;font-weight:800}
+.ring b i{font-size:12px;font-style:normal;color:var(--ink2);display:block;text-align:center;font-weight:700}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.stat{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:11px 12px}
+.stat b{display:block;font-size:22px;font-weight:800;line-height:1.1}
+.stat span{font-size:11.5px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.04em}
+.catrow{display:flex;width:100%;align-items:center;gap:12px;padding:14px 4px;border-bottom:1px dashed var(--line);text-align:left;min-height:64px}
+.catrow:last-child{border:0}
+.catrow .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:none;background:var(--chip)}
+.catrow .nm{flex:1;min-width:0}
+.catrow .nm b{display:block;font-size:16px;font-weight:700}
+.catrow .nm .bar{margin-top:6px}
+
+/* ---------- practice modes ---------- */
+.mode{display:flex;gap:14px;align-items:flex-start;text-align:left;width:100%;padding:17px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:12px}
+.mode:active{transform:scale(.995)}
+.mode .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:23px;flex:none;background:var(--chip)}
+.mode b{display:block;font-size:17px;font-weight:800;margin-bottom:3px}
+.mode p{margin:0;font-size:14px;color:var(--ink2);line-height:1.45}
+
+/* ---------- session ---------- */
+.dots{display:flex;gap:5px;justify-content:center;margin:2px 0 16px;flex-wrap:wrap}
+.dots i{width:9px;height:9px;border-radius:99px;background:var(--line2)}
+.dots i.now{background:var(--teal);transform:scale(1.3)}
+.dots i.good{background:var(--ok)}
+.dots i.bad{background:var(--coral)}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--sh)}
+.prompt{font-size:15px;color:var(--ink2);font-weight:700;margin-bottom:4px}
+.qdef{font-size:23px;font-weight:800;line-height:1.3;letter-spacing:-.3px}
+.qvi{margin-top:8px;font-size:17.5px;color:var(--teal-text);font-weight:700}
+.qex{margin-top:12px;font-size:15px;color:var(--ink2);font-style:italic;border-left:3px solid var(--line);padding-left:12px}
+.spellbox{width:100%;margin-top:18px;padding:17px 18px;border:2px solid var(--line);border-radius:14px;
+  font-size:25px;font-weight:700;letter-spacing:.02em;background:var(--card2);text-align:center;color:var(--ink)}
+.spellbox:focus{outline:none;border-color:var(--teal);background:var(--card)}
+.spellbox.good{border-color:var(--ok);background:var(--ok-soft)}
+.spellbox.bad{border-color:var(--coral);background:var(--coral-soft)}
+.hintrow{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.audiobtn{width:100%;background:var(--violet-soft);color:var(--violet-ink);border:1.5px solid var(--violet-line);font-weight:800;
+  padding:15px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px}
+.fb{margin-top:16px;padding:16px;border-radius:16px;font-size:16px}
+.fb.good{background:var(--ok-soft);border:1px solid var(--ok-line)}
+.fb.bad{background:var(--coral-soft);border:1px solid var(--coral-line)}
+.fb b{font-size:15px;display:block;margin-bottom:8px}
+.answer{font-size:28px;font-weight:800;letter-spacing:.04em;word-break:break-word}
+.answer em{font-style:normal;color:var(--coral);background:var(--mark-bg);border-radius:5px;padding:0 2px;
+  box-shadow:inset 0 -3px 0 var(--mark-line)}
+.answer s{text-decoration:none;color:var(--ink2)}
+.yours{font-size:19px;font-weight:700;color:var(--gold-ink);margin-top:6px;word-break:break-word}
+.yours em{font-style:normal;color:var(--coral);text-decoration:line-through}
+.opt{width:100%;text-align:left;padding:16px 17px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);
+  font-weight:700;margin-bottom:9px;min-height:60px;display:flex;align-items:center;gap:10px;font-size:17px}
+.opt.pick{border-color:var(--teal);background:var(--teal-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--coral);background:var(--coral-soft)}
+.opt .k{width:28px;height:28px;border-radius:8px;background:var(--chip);display:grid;place-items:center;font-size:13px;flex:none}
+.letters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+
+/* ---------- syllables & build ---------- */
+.sylrow{display:flex;align-items:center;justify-content:center;gap:5px;flex-wrap:wrap;margin:14px 0 6px}
+.syl{background:var(--chip);border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font-weight:800;font-size:16px}
+.syl.big{font-size:24px;padding:15px 19px;border-radius:14px;min-height:62px;background:var(--card)}
+.syl.off{opacity:.34}
+.dot{color:var(--ink2);font-weight:800}
+.gap{display:inline-block;width:14px}
+.buildbox{margin-top:16px;min-height:74px;border:2px dashed var(--line);border-radius:14px;display:grid;
+  place-items:center;font-size:27px;font-weight:800;background:var(--card2);padding:12px;word-break:break-word;text-align:center}
+
+/* ---------- CHUNK RUSH — sized for a moving car ---------- */
+.gbar{height:14px;border-radius:99px;background:var(--line2);overflow:hidden;margin-top:10px}
+.gbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--coral));transition:width .1s linear}
+.gtop{display:flex;gap:10px;align-items:center}
+.gstat{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;text-align:center;flex:1}
+.gstat b{display:block;font-size:25px;font-weight:800;line-height:1.1}
+.gstat span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2)}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:22px;
+  padding:22px 18px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.gcard .qdef{font-size:25px;line-height:1.28}
+.gslots{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 6px;min-height:70px;align-items:center}
+.slot{min-width:64px;height:68px;border:2.5px dashed var(--line);border-radius:14px;display:grid;place-items:center;
+  font-size:26px;font-weight:800;padding:0 12px;background:var(--card2)}
+.slot.done{border-style:solid;border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
+.gbag{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.tile{font-size:27px;font-weight:800;padding:17px 22px;border-radius:16px;background:var(--card);
+  border:2.5px solid var(--teal-line);color:var(--ink);box-shadow:0 4px 0 var(--teal-line);min-height:74px;min-width:74px}
+.tile:active{transform:translateY(4px);box-shadow:none}
+.tile.gone{opacity:.3;pointer-events:none;border-color:var(--line);box-shadow:none;border-style:dashed}
+.tile.bad{animation:shk .28s;border-color:var(--coral);background:var(--coral-soft);box-shadow:0 4px 0 var(--coral-line)}
+@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.combo{position:absolute;top:16px;right:18px;font-weight:800;color:var(--gold-ink);font-size:16px}
+.float{position:absolute;left:50%;top:10px;transform:translateX(-50%);font-size:34px;font-weight:800;
+  color:var(--ok);animation:up .9s ease-out forwards;pointer-events:none;z-index:5;
+  text-shadow:0 0 12px var(--card),0 0 22px var(--card),0 2px 0 var(--card)}
+.float.neg{color:var(--coral)}
+@keyframes up{0%{opacity:0;transform:translate(-50%,26px) scale(.7)}25%{opacity:1;transform:translate(-50%,10px) scale(1.15)}100%{opacity:0;transform:translate(-50%,-16px) scale(1)}}
+.ghelp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.ghelp button{min-height:64px;border-radius:14px;background:var(--card2);border:1.5px solid var(--line);
+  font-size:14.5px;font-weight:800;color:var(--ink2);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;line-height:1.2;padding:8px 4px}
+.ghelp button i{font-style:normal;font-size:19px}
+.ghelp button u{text-decoration:none;font-size:12px;font-weight:700;opacity:.85}
+.ghelp button:active{transform:translateY(2px)}
+.pill{display:inline-block;background:var(--gold-soft);border:1px solid var(--gold-line);color:var(--gold-ink);
+  font-weight:800;font-size:13.5px;padding:6px 12px;border-radius:99px}
+.sbrow{display:flex;align-items:center;gap:10px;padding:10px 2px;border-bottom:1px solid var(--line)}
+.sbrow:last-child{border:0}
+.sbrow .rk{width:26px;text-align:center;font-weight:800;color:var(--ink2);font-size:14px}
+.sbrow b{font-size:20px;font-weight:800;min-width:48px}
+
+/* ---------- word list ---------- */
+.search{width:100%;padding:15px 16px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+.search:focus{outline:none;border-color:var(--teal)}
+.filters{display:flex;gap:7px;overflow-x:auto;padding:12px 0 4px;-webkit-overflow-scrolling:touch}
+.filters button{padding:11px 15px;border-radius:99px;background:var(--card);border:1.5px solid var(--line);
+  font-size:14.5px;font-weight:700;white-space:nowrap;color:var(--ink2);min-height:46px}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.witem{border-bottom:1px solid var(--line);padding:14px 2px}
+.witem:last-child{border:0}
+.whead{display:flex;align-items:center;gap:10px;width:100%;text-align:left;min-height:52px}
+.whead .t{flex:1;min-width:0;font-weight:700;font-size:17px}
+.whead .t s{display:block;font-size:13px;color:var(--coral);text-decoration:none;font-weight:600}
+.wbody{padding:10px 0 4px;font-size:15.5px}
+.wbody .lbl{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2);margin-top:10px}
+.note{background:var(--coral-soft);border:1px solid var(--coral-line);border-radius:12px;padding:12px 14px;margin-top:10px;font-size:14.5px}
+.note b{color:var(--coral-ink)}
+kbd{background:var(--chip);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;font:inherit;font-size:14px}
+.banner{background:var(--gold-soft);border:1px solid var(--gold-line);color:var(--gold-ink);border-radius:14px;padding:12px 14px;font-size:14px;margin-bottom:14px}
+textarea.imp{width:100%;min-height:130px;padding:13px;border:1.5px solid var(--line);border-radius:14px;
+  background:var(--card);color:var(--ink);font-family:ui-monospace,Menlo,monospace;font-size:13px}
+.done{text-align:center;padding:26px 10px}
+.done .big{font-size:56px}
+.done h2{font-size:27px;margin:8px 0 6px}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+@media (max-width:560px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .hero{flex-direction:column;text-align:center}
+  .qdef{font-size:20px}
+  .gcard .qdef{font-size:21px}
+  .tile{font-size:24px;min-height:68px;min-width:66px;padding:15px 18px}
+  nav.tabs button span.lbl{display:none}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div class="logo">EL</div>
+    <div class="brand"><b>Elena's Word Lab</b><span>FCE / B2 First &middot; spelling &amp; vocabulary</span></div>
+    <button class="themebtn" id="themebtn" onclick="cycleTheme()" title="Light / dark / auto">🌗</button>
+    <div class="streak" id="streak">🔥 0</div>
+  </header>
+  <nav class="tabs" id="tabs"></nav>
+  <main id="view"></main>
+</div>
+<script>
+/* ============================================================
+   ELENA'S WORD LAB — WORD DATA
+   ------------------------------------------------------------
+   To add a new week: copy a block, change the fields, bump week.
+   Fields:
+     id    unique short id            cat   nations|pv1|look|person|school
+     term  the word/phrase to spell   alt   other accepted spellings
+     en    English meaning            vi    Vietnamese meaning (checked)
+     ex    example sentence           focus tricky letter chunks
+     note  spelling tip (always safe to show)
+     flag  {src:'elena'|'teacher', wrote:'...', text:'...'}
+           src 'elena'   = copied down wrongly / spelling slip
+           src 'teacher' = the note in the book is itself wrong or unnatural
+   ============================================================ */
+const CATS = {
+  nations:{name:'Countries & Nationalities', icon:'🌍'},
+  pv1:    {name:'Unit 1 Phrasal Verbs',      icon:'🧩'},
+  look:   {name:'The LOOK Family',           icon:'👀'},
+  person: {name:'Personality Adjectives',    icon:'💛'},
+  school: {name:'School Objects',            icon:'🎒'}
+};
+const W1 = 'Week 1 · Unit 1';
+
+const WORDS = [
+/* ---------- COUNTRIES, NATIONALITIES, LANGUAGES ---------- */
+{id:'n01',cat:'nations',week:W1,term:'Australia',vi:'Úc',focus:['stra'],
+ nat:'Australian',natFocus:['lian'],lang:'English'},
+
+{id:'n02',cat:'nations',week:W1,term:'Brazil',vi:'Bra-xin',focus:['z'],
+ nat:'Brazilian',natFocus:['ilian'],lang:'Portuguese',
+ note:'Nationality ends <b>-ian</b>: Brazil + ian = Brazil<b>ian</b>.',
+ flag:{src:'elena',wrote:'Brazilion',right:'Brazilian',target:'nat',text:'You wrote <b>Brazilion</b> with -ion. It is <b>-ian</b>, like Ital<b>ian</b> and Canad<b>ian</b>.'}},
+
+{id:'n03',cat:'nations',week:W1,term:'Canada',vi:'Ca-na-đa',focus:['ada'],
+ nat:'Canadian',natFocus:['dian'],lang:'English, French'},
+
+{id:'n04',cat:'nations',week:W1,term:'Denmark',vi:'Đan Mạch',focus:['nm'],
+ nat:'Danish',natFocus:['nish'],lang:'Danish',
+ note:'Denmark → <b>Danish</b>: the word loses "-mark" and <b>e</b> becomes <b>a</b>.'},
+
+{id:'n05',cat:'nations',week:W1,term:'England',vi:'nước Anh',focus:['ngl'],
+ nat:'English',natFocus:['glish'],lang:'English'},
+
+{id:'n06',cat:'nations',week:W1,term:'Finland',vi:'Phần Lan',focus:['Fin'],
+ nat:'Finnish',natFocus:['nn'],lang:'Finnish',
+ note:'Fin<b>land</b> has one <b>n</b> — but Fi<b>nn</b>ish has two.'},
+
+{id:'n07',cat:'nations',week:W1,term:'Greece',vi:'Hy Lạp',focus:['eece'],
+ nat:'Greek',natFocus:['eek'],lang:'Greek',
+ note:'Gre<b>ece</b> (country, -ce) → Gr<b>eek</b> (person, -k). Irregular!'},
+
+{id:'n08',cat:'nations',week:W1,term:'Hungary',vi:'Hung-ga-ri',focus:['gary'],
+ nat:'Hungarian',natFocus:['garian'],lang:'Hungarian',
+ note:'Hun<b>gary</b> ends <b>-ary</b> (like Janu<b>ary</b>), not -ery.'},
+
+{id:'n09',cat:'nations',week:W1,term:'Italy',vi:'Ý',focus:['taly'],
+ nat:'Italian',natFocus:['lian'],lang:'Italian'},
+
+{id:'n10',cat:'nations',week:W1,term:'Japan',vi:'Nhật Bản',focus:['pan'],
+ nat:'Japanese',natFocus:['ese'],lang:'Japanese'},
+
+{id:'n11',cat:'nations',week:W1,term:'Korea',vi:'Triều Tiên / Hàn Quốc',focus:['orea'],
+ nat:'Korean',natFocus:['rean'],lang:'Korean'},
+
+{id:'n12',cat:'nations',week:W1,term:'Lebanon',vi:'Li-băng',focus:['anon'],
+ nat:'Lebanese',natFocus:['ese'],lang:'Arabic',
+ note:'Leban<b>on</b> (country) → Leban<b>ese</b> (person).',
+ flag:{src:'teacher',wrote:'language = Lebanese',right:'language = Arabic',text:'The book lists the <b>language</b> as "Lebanese". There is no Lebanese language — people in Lebanon speak <b>Arabic</b> (and often French/English). <i>Lebanese</i> is only the nationality.'}},
+
+{id:'n13',cat:'nations',week:W1,term:'Malaysia',vi:'Ma-lai-xi-a',focus:['lay'],
+ nat:'Malaysian',natFocus:['lay'],lang:'Malay',
+ note:'Ma-<b>lay</b>-sia — hidden inside it is the language, <b>Malay</b>.',
+ flag:{src:'elena',wrote:'Mapaysia / Mapaysian',right:'Malaysia / Malaysian',trap:'Mapaysia',text:'You wrote <b>P</b> instead of <b>L</b> twice. It is Ma<b>l</b>aysia and Ma<b>l</b>aysian.'}},
+
+{id:'n14',cat:'nations',week:W1,term:'New Zealand',vi:'Niu Di-lân',focus:['Zea'],
+ nat:'New Zealander',natFocus:['ander'],lang:'English',
+ note:'The person is a New Zealand<b>er</b> (informally a "Kiwi"). Language: <b>English</b> (and Māori).'},
+
+{id:'n15',cat:'nations',week:W1,term:'Oman',vi:'Ô-man',focus:['Om'],
+ nat:'Omani',natFocus:['ni'],lang:'Arabic',
+ note:'Gulf countries usually add just <b>-i</b>: Oman<b>i</b>, Qatar<b>i</b>, Iraq<b>i</b>.'},
+
+{id:'n16',cat:'nations',week:W1,term:'the Philippines',alt:['philippines'],vi:'Phi-líp-pin',focus:['lipp'],
+ nat:'Filipino',natFocus:['Fil'],lang:'Filipino (Tagalog)',
+ note:'Country = <b>Ph</b>i<b>lipp</b>ines (Ph, one L, double P). Person = <b>F</b>ilipino (F, one L, one P). A woman is a <b>Filipina</b>.',
+ flag:{src:'elena',wrote:'Phillipines / Phillipino / Phillipina',right:'the Philippines / Filipino',trap:'Phillipines',text:'Two slips: you doubled the <b>L</b> (it is one L, then double P), and the person is spelled with <b>F</b>: <b>F</b>ilipino. Your third column also needs the language, which is <b>Filipino</b>.'}},
+
+{id:'n17',cat:'nations',week:W1,term:'Qatar',vi:'Ca-ta',focus:['Qa'],
+ nat:'Qatari',natFocus:['ri'],lang:'Arabic'},
+
+{id:'n18',cat:'nations',week:W1,term:'Russia',vi:'Nga',focus:['ss'],
+ nat:'Russian',natFocus:['ss'],lang:'Russian',
+ note:'One <b>R</b> at the front, double <b>S</b> in the middle: R-u-<b>ss</b>-i-a.',
+ flag:{src:'elena',wrote:'Rrussian',right:'Russian',target:'nat',text:'You started with two Rs. Only <b>one R</b>: <b>R</b>ussian.'}},
+
+{id:'n19',cat:'nations',week:W1,term:'South Korea',vi:'Hàn Quốc',focus:['Korea'],
+ nat:'South Korean',natFocus:['rean'],lang:'Korean',
+ flag:{src:'teacher',wrote:'language = South Korean',right:'language = Korean',text:'The book lists the <b>language</b> as "South Korean". The language is simply <b>Korean</b> — the "South" only describes the country and the people.'}},
+
+{id:'n20',cat:'nations',week:W1,term:'Thailand',vi:'Thái Lan',focus:['Thai'],
+ nat:'Thai',natFocus:['Thai'],lang:'Thai',
+ note:'Thailand = <b>Thai</b> + land. Nothing is added for the nationality: <b>Thai</b>.'},
+
+{id:'n21',cat:'nations',week:W1,term:'Uzbekistan',vi:'U-dơ-bê-ki-xtan',focus:['bekis'],
+ nat:'Uzbek',natFocus:['zbek'],lang:'Uzbek',
+ note:'Same pattern as Kazakhstan → Kazakh. "Uzbekistani" is also correct.',
+ flag:{src:'elena',wrote:'Uzbekis (unfinished)',right:'Uzbek',target:'nat',trap:'Uzbekis',text:'The row was left half-written. Nationality = <b>Uzbek</b>, language = <b>Uzbek</b>.'}},
+
+/* ---------- UNIT 1 PHRASAL VERBS & EXPRESSIONS ---------- */
+{id:'p01',cat:'pv1',week:W1,term:'a family of four',pos:'phrase',
+ en:'a family with four people in it',vi:'gia đình bốn người',focus:['of'],
+ ex:'We are a family of four: my parents, my brother and me.'},
+
+{id:'p02',cat:'pv1',week:W1,term:'exotic',pos:'adjective',
+ en:'unusual and interesting, from a faraway country',vi:'kỳ lạ, mang nét ngoại lai',focus:['x','tic'],
+ ex:'The market was full of exotic fruit I had never seen before.',
+ note:'One <b>x</b>, no <b>k</b>: e-<b>x</b>-o-<b>tic</b>.'},
+
+{id:'p03',cat:'pv1',week:W1,term:'help somebody out',alt:['help sb out','help out'],pos:'phrasal verb',
+ en:'assist somebody, especially when they are busy or in trouble',vi:'giúp đỡ ai (khi họ gặp khó)',focus:['out'],
+ ex:'Could you help me out with the washing-up?',
+ flag:{src:'elena',wrote:'help slod out',right:'help somebody out',text:'Handwriting slip — the phrase is <b>help somebody out</b> (help sb out).'}},
+
+{id:'p04',cat:'pv1',week:W1,term:'get back into something',alt:['get back into','get back in to'],pos:'phrasal verb',
+ en:'start doing something again after a break',vi:'quay lại làm gì sau một thời gian nghỉ',focus:['into'],
+ ex:'After the exams I want to get back into swimming.',
+ note:'Write <b>into</b> as one word here, not "in to".'},
+
+{id:'p05',cat:'pv1',week:W1,term:'chill out',pos:'phrasal verb',
+ en:'relax completely (informal)',vi:'thư giãn, nghỉ ngơi',focus:['ll'],
+ ex:'At the weekend I just chill out with my friends.',
+ note:'Double <b>L</b>: chi<b>ll</b> out.'},
+
+{id:'p06',cat:'pv1',week:W1,term:'be keen on',alt:['keen on'],pos:'expression',
+ en:'be very enthusiastic about something; like it a lot',vi:'rất thích, hào hứng với',focus:['ee'],
+ ex:'My mum is very keen on volleyball.',
+ note:'k-<b>ee</b>-n (like "seen"). Next verb takes <b>-ing</b>: keen on play<b>ing</b>.'},
+
+{id:'p07',cat:'pv1',week:W1,term:'come up with',pos:'phrasal verb',
+ en:'think of an idea, plan or answer',vi:'nghĩ ra (ý tưởng, kế hoạch)',focus:['up with'],
+ ex:'She came up with a brilliant idea for the project.',
+ flag:{src:'teacher',wrote:'come up with = have a good idea',right:'come up with = think of an idea, plan or answer',text:'Close, but the idea does not have to be <i>good</i> — and you can also come up with a plan, an excuse or an answer. Better: <b>think of</b> or <b>produce an idea or solution</b>.'}},
+
+{id:'p08',cat:'pv1',week:W1,term:'get off',pos:'phrasal verb',
+ en:'leave a bus, train or plane (also: to start a journey)',vi:'xuống (xe, tàu, máy bay)',focus:['ff'],
+ ex:'We get off at the next stop.',
+ flag:{src:'teacher',wrote:'get off = depart',right:'get off = leave a bus / train / plane',text:'"Depart" is only half of it. The everyday FCE meaning is <b>to leave a bus / train / plane</b> — the opposite of <b>get on</b>. (For a plane you also "get off"; for a car it is <b>get out of</b>.)'}},
+
+{id:'p09',cat:'pv1',week:W1,term:'work something out',alt:['work sth out','work out'],pos:'phrasal verb',
+ en:'solve a problem or calculate an answer',vi:'giải quyết, tính ra',focus:['out'],
+ ex:'I could not work out the answer to question 5.'},
+
+{id:'p10',cat:'pv1',week:W1,term:'let somebody down',alt:['let sb down','let down'],pos:'phrasal verb',
+ en:'disappoint somebody; fail to do what you promised',vi:'làm ai thất vọng',focus:['down'],
+ ex:'You can trust Ana — she will never let you down.',
+ note:'The noun is a <b>let-down</b>. And note: "make somebody disappoint<b>ed</b>" needs the <b>-ed</b>.'},
+
+{id:'p11',cat:'pv1',week:W1,term:'rely on',pos:'phrasal verb',
+ en:'depend on; trust somebody to do something',vi:'dựa vào, tin cậy vào',focus:['ly'],
+ ex:'I rely on my sister to wake me up.',
+ note:'rely → rel<b>ies</b>, rel<b>ied</b>, re<b>li</b>able: the <b>y</b> becomes <b>i</b>.'},
+
+{id:'p12',cat:'pv1',week:W1,term:'fall out with somebody',alt:['fall out with','fall out with sb','fall out'],pos:'phrasal verb',
+ en:'argue with somebody and stop being friends',vi:'cãi nhau và mất lòng nhau',focus:['ll'],
+ ex:'They fell out with each other over a silly joke.',
+ note:'Past tense: <b>fell</b> out with. Noun: a <b>falling-out</b>.'},
+
+{id:'p13',cat:'pv1',week:W1,term:'hit it off',pos:'expression',
+ en:'like each other as soon as you meet',vi:'hợp nhau ngay từ đầu',focus:['it off'],
+ ex:'We hit it off straight away and became best friends.',
+ note:'The <b>it</b> never changes: we hit <b>it</b> off, they hit <b>it</b> off.'},
+
+{id:'p14',cat:'pv1',week:W1,term:'take after somebody',alt:['take after','take after sb'],pos:'phrasal verb',
+ en:'resemble an older member of your family',vi:'giống (bố/mẹ, người lớn trong nhà)',focus:['after'],
+ ex:'Elena takes after her mother — they have the same eyes.',
+ flag:{src:'teacher',wrote:'look out for somebody = resemble',right:'take after somebody = resemble',text:'The book gave "resemble" to the wrong phrasal verb. The verb that means <b>resemble a relative</b> is <b>take after somebody</b>. <i>Look out for</i> means to watch out for / protect. Learn the pair together.'}},
+
+{id:'p15',cat:'pv1',week:W1,term:'sort something out',alt:['sort sth out','sort out'],pos:'phrasal verb',
+ en:'organise something; deal with a problem successfully',vi:'sắp xếp, giải quyết cho xong',focus:['sort'],
+ ex:'I need to sort out my school bag before Monday.',
+ flag:{src:'teacher',wrote:'sort out = work out',right:'sort out = organise / deal with',text:'They overlap but are not the same. <b>Work out</b> = calculate or find the answer. <b>Sort out</b> = tidy / organise, or fix a practical problem.'}},
+
+{id:'p16',cat:'pv1',week:W1,term:'stand somebody up',alt:['stand sb up','stand up'],pos:'phrasal verb',
+ en:'fail to meet somebody you arranged to meet',vi:'cho ai leo cây (không đến chỗ hẹn)',focus:['up'],
+ ex:'He stood me up — I waited outside the cinema for an hour!',
+ note:'Past tense: <b>stood</b> somebody up.',
+ flag:{src:'elena',wrote:'stand somebody out',right:'stand somebody up',text:'You wrote <b>out</b>. It is stand somebody <b>UP</b>. ("Stand out" exists but means <i>be noticeable</i> — a completely different phrase.)'}},
+
+{id:'p17',cat:'pv1',week:W1,term:'see somebody off',alt:['see sb off','see off'],pos:'phrasal verb',
+ en:'go to the station or airport to say goodbye to somebody',vi:'đi tiễn ai',focus:['ff'],
+ ex:'We went to the airport to see my cousin off.'},
+
+{id:'p18',cat:'pv1',week:W1,term:"follow in somebody's footsteps",alt:["follow in sb's footsteps",'follow in somebodys footsteps','follow in footsteps'],pos:'expression',
+ en:'do the same job or the same thing as somebody before you',vi:'nối gót, theo bước chân của ai',focus:['footsteps'],
+ ex:'She followed in her father’s footsteps and became a doctor.',
+ note:'<b>footsteps</b> = one word, always <b>plural</b>. Keep the apostrophe: somebody<b>’s</b>.',
+ flag:{src:'teacher',wrote:"follow in sb's footsteps = imitate",right:"follow in sb's footsteps = follow the same career/path",text:'"Imitate" is too wide — it can mean copying anyone. This phrase is specifically about <b>following the same career or path as somebody in your family</b>.'}},
+
+/* ---------- THE LOOK FAMILY ---------- */
+{id:'l01',cat:'look',week:W1,term:'look at',pos:'phrasal verb',
+ en:'turn your eyes towards something',vi:'nhìn vào',focus:['at'],
+ ex:'Look at this photo of my grandmother.'},
+
+{id:'l02',cat:'look',week:W1,term:'look for',pos:'phrasal verb',
+ en:'try to find something',vi:'tìm kiếm',focus:['for'],
+ ex:'I am looking for my pencil case.'},
+
+{id:'l03',cat:'look',week:W1,term:'look out',pos:'phrasal verb',
+ en:'be careful — watch for danger',vi:'coi chừng, cẩn thận',focus:['out'],
+ ex:'Look out — there is a car coming!'},
+
+{id:'l04',cat:'look',week:W1,term:'look out for somebody',alt:['look out for','look out for sb'],pos:'phrasal verb',
+ en:'watch and take care of somebody; keep your eyes open for them',vi:'trông chừng, để ý bảo vệ ai',focus:['out for'],
+ ex:'Big brothers should look out for their little sisters.',
+ flag:{src:'teacher',wrote:'look out for somebody = resemble',right:'look out for = watch for / protect',text:'Wrong meaning in the book. Look out for = <b>watch for / protect</b>. The one that means resemble is <b>take after somebody</b>.'}},
+
+{id:'l05',cat:'look',week:W1,term:'look after',pos:'phrasal verb',
+ en:'take care of somebody or something',vi:'chăm sóc, trông coi',focus:['after'],
+ ex:'I look after my little brother on Fridays.',
+ flag:{src:'teacher',wrote:'look after = mong chờ',right:'look after = chăm sóc',text:'"Mong chờ" belongs to <b>look forward to</b>. Look after = <b>chăm sóc</b> (take care of).'}},
+
+{id:'l06',cat:'look',week:W1,term:'look alike',pos:'phrasal verb',
+ en:'look the same as each other',vi:'trông giống nhau',focus:['alike'],
+ ex:'My mum and I look alike.',
+ note:'<b>alike</b> is one word and comes after the people: they <b>look alike</b>.'},
+
+{id:'l07',cat:'look',week:W1,term:'look into',pos:'phrasal verb',
+ en:'investigate something; examine it carefully',vi:'điều tra, xem xét kỹ',focus:['into'],
+ ex:'The teacher promised to look into the problem.',
+ flag:{src:'teacher',wrote:'look into = nhìn vào',right:'look into = điều tra, xem xét',text:'"Nhìn vào" is <b>look at</b>. Look into = <b>điều tra / xem xét</b> (investigate).'}},
+
+{id:'l08',cat:'look',week:W1,term:'look forward to',pos:'phrasal verb',
+ en:'feel happy and excited about something that is going to happen',vi:'mong chờ, háo hức',focus:['forward'],
+ ex:'I am looking forward to the summer holidays.',
+ note:'The next verb takes <b>-ing</b>: look forward to see<b>ing</b> you.',
+ flag:{src:'teacher',wrote:'look forward to = hồi hộp',right:'look forward to = mong chờ, háo hức',text:'"Hồi hộp" means nervous / tense. Look forward to is <b>positive</b>: <b>mong chờ, háo hức</b>.'}},
+
+{id:'l09',cat:'look',week:W1,term:'look up to somebody',alt:['look up to','look up to sb'],pos:'phrasal verb',
+ en:'admire and respect somebody',vi:'kính trọng, ngưỡng mộ',focus:['up to'],opp:'look down on somebody',
+ ex:'I look up to my grandmother — she is so brave.'},
+
+{id:'l10',cat:'look',week:W1,term:'look down on somebody',alt:['look down on','look down on sb'],pos:'phrasal verb',
+ en:'think you are better than somebody; despise them',vi:'coi thường ai',focus:['down on'],opp:'look up to somebody',
+ ex:'Never look down on people who are different from you.'},
+
+{id:'l11',cat:'look',week:W1,term:'look back at',pos:'phrasal verb',
+ en:'recall something; think again about a past moment',vi:'nhớ lại, xem lại',focus:['back at'],
+ ex:'Let us look back at what we learned last week.'},
+
+{id:'l12',cat:'look',week:W1,term:'look back on',pos:'phrasal verb',
+ en:'reminisce — remember a whole period of your life',vi:'hồi tưởng (một giai đoạn)',focus:['back on'],
+ ex:'I will look back on these school years and smile.',
+ note:'look back <b>at</b> a moment or detail · look back <b>on</b> a whole period.'},
+
+/* ---------- PERSONALITY ADJECTIVES ---------- */
+{id:'a01',cat:'person',week:W1,term:'cooperative',pos:'adj +',
+ en:'willing to work together and help',vi:'có tinh thần hợp tác',focus:['oo','tive'],opp:'uncooperative',
+ ex:'She is very cooperative in group work.',
+ note:'Double <b>o</b>: c-<b>oo</b>-perative. Opposite adds <b>un-</b>.'},
+
+{id:'a02',cat:'person',week:W1,term:'mature',pos:'adj +',
+ en:'behaving in a sensible, grown-up way',vi:'chín chắn, trưởng thành',focus:['ture'],opp:'immature',
+ ex:'He is very mature for a fifteen-year-old.',
+ note:'Opposite takes <b>im-</b>, not un-: <b>im</b>mature. Also the opposite of <b>childish</b>.'},
+
+{id:'a03',cat:'person',week:W1,term:'thoughtful',pos:'adj +',
+ en:'kind — thinks about what other people need',vi:'chu đáo, tâm lý',focus:['ough','tful'],opp:'thoughtless',
+ ex:'What a thoughtful present!',
+ flag:{src:'elena',wrote:'thoughless',right:'thoughtless',text:'You dropped the <b>t</b>. It comes from <b>thought</b>: though<b>t</b>ful / though<b>t</b>less.'}},
+
+{id:'a04',cat:'person',week:W1,term:'sympathetic',pos:'adj +',
+ en:'showing that you understand and care about somebody’s problems',vi:'biết thông cảm',focus:['sym','thetic'],opp:'unsympathetic',
+ ex:'My teacher was very sympathetic when I was ill.',
+ note:'Starts <b>sym</b>- with a <b>y</b>, then -pa-<b>thetic</b>.'},
+
+{id:'a05',cat:'person',week:W1,term:'hard-working',alt:['hardworking'],pos:'adj +',
+ en:'puts a lot of effort into work',vi:'chăm chỉ, siêng năng',focus:['-'],opp:'lazy',
+ ex:'Elena is a hard-working student.',
+ note:'Usually written with a <b>hyphen</b>. The opposite is <b>lazy</b> — there is no "un-" form.'},
+
+{id:'a06',cat:'person',week:W1,term:'reliable',pos:'adj +',
+ en:'can be trusted to do what they promise',vi:'đáng tin cậy',focus:['li','able'],opp:'unreliable',
+ ex:'He is the most reliable person on the team.',
+ note:'From <b>rely</b>: rely → re<b>li</b>able (y→i), ending <b>-able</b>.',
+ flag:{src:'elena',wrote:'unnelidble',right:'unreliable',trap:'unnelidble',drillTerm:'unreliable',text:'The letters got tangled. Build it in pieces: <b>un</b> + <b>reli</b> + <b>able</b> = unreliable.'}},
+
+{id:'a07',cat:'person',week:W1,term:'energetic',pos:'adj +',
+ en:'full of energy; very active',vi:'tràn đầy năng lượng',focus:['ner','getic'],opp:'lethargic / not very energetic',
+ ex:'My grandfather is more energetic than me!',
+ note:'Noun: <b>energy</b> → adjective <b>energetic</b> (the stress moves to -GET-).',
+ flag:{src:'teacher',wrote:'unenergetic',right:'not very energetic / lethargic',text:'"Unenergetic" is not natural English. Use <b>not very energetic</b>, <b>lazy</b>, or (more formal) <b>lethargic</b>.'}},
+
+{id:'a08',cat:'person',week:W1,term:'patient',pos:'adj +',
+ en:'able to wait calmly without getting annoyed',vi:'kiên nhẫn',focus:['tient'],opp:'impatient',
+ ex:'You must be patient with young children.',
+ note:'Ends <b>-tient</b>. Opposite takes <b>im-</b>. Noun: <b>patience</b>.',
+ flag:{src:'elena',wrote:'nhiên nhẫn',right:'kiên nhẫn (Vietnamese)',noDrill:1,text:'Small slip in the Vietnamese too — it is <b>kiên nhẫn</b>.'}},
+
+{id:'a09',cat:'person',week:W1,term:'responsible',pos:'adj +',
+ en:'can be trusted to do the right thing',vi:'có trách nhiệm',focus:['spon','sible'],opp:'irresponsible',
+ ex:'She is responsible for locking the classroom.',
+ note:'Ends <b>-sible</b>, not -sable. Opposite takes <b>ir-</b>.',
+ flag:{src:'elena',wrote:'irresponsiblee',right:'irresponsible',drillTerm:'irresponsible',text:'Only <b>one e</b> at the end: irresponsibl<b>e</b>.'}},
+
+{id:'a10',cat:'person',week:W1,term:'enthusiastic',pos:'adj +',
+ en:'showing a lot of excitement and interest',vi:'nhiệt tình, hào hứng',focus:['thu','iastic'],opp:'unenthusiastic',
+ ex:'The class was enthusiastic about the trip.',
+ note:'en-<b>thu</b>-si-<b>as</b>-tic. Noun: <b>enthusiasm</b>. Same idea as <b>be keen on</b>.'},
+
+{id:'a11',cat:'person',week:W1,term:'sensitive',pos:'adj ±',
+ en:'aware of other people’s feelings; also easily upset',vi:'nhạy cảm, tinh tế',focus:['sen','sitive'],opp:'insensitive',
+ ex:'Be careful — he is quite sensitive about his height.',
+ note:'Opposite takes <b>in-</b>: <b>in</b>sensitive.',
+ flag:{src:'elena',wrote:'sesitive',right:'sensitive',text:'You dropped the <b>n</b>. Say it in syllables: <b>sen</b>-si-tive.'}},
+
+{id:'a12',cat:'person',week:W1,term:'caring',pos:'adj +',
+ en:'kind and looking after other people',vi:'quan tâm, biết chăm sóc',focus:['ring'],opp:'uncaring',
+ ex:'Nurses are usually very caring people.',
+ note:'care → car<b>ing</b>: drop the <b>e</b> before -ing.'},
+
+{id:'a13',cat:'person',week:W1,term:'organised',alt:['organized'],pos:'adj +',
+ en:'plans well and keeps things tidy',vi:'ngăn nắp, có tổ chức',focus:['ganised'],opp:'disorganised',
+ ex:'Keep your notes organised and revision is easy.',
+ note:'British <b>-ised</b>, American <b>-ized</b> — both accepted in the exam. Opposite: <b>dis</b>organised.'},
+
+{id:'a14',cat:'person',week:W1,term:'cheeky',pos:'adj –',
+ en:'slightly rude or disrespectful, but often in a funny way',vi:'nghịch ngợm, hơi hỗn (kiểu vui)',focus:['eek'],opp:'polite',
+ ex:'That was a cheeky answer to give your teacher!',
+ note:'Spelling: ch-<b>eek</b>-y (like "cheek", your face).',
+ flag:{src:'teacher',wrote:'cheeky = láu cá',right:'cheeky = nghịch ngợm, hơi hỗn',text:'"Láu cá" means sly or crafty — that is <b>sly / crafty / cunning</b>. Cheeky is cheerfully rude: <b>nghịch ngợm, hơi hỗn</b>. It is often affectionate.'}},
+
+{id:'a15',cat:'person',week:W1,term:'critical',pos:'adj –',
+ en:'always finding faults in other people',vi:'hay chỉ trích, phê phán',focus:['cri','cal'],opp:'complimentary',
+ ex:'Try not to be too critical of your friends.',
+ note:'Ends <b>-cal</b>. Verb: <b>criticise</b>. Noun: <b>criticism</b>.',
+ flag:{src:'teacher',wrote:'uncritical',right:'complimentary / encouraging',text:'"Uncritical" exists, but it means <i>accepting things without questioning them</i> — it is not the natural opposite of a critical person. For personality, use <b>complimentary</b>, <b>encouraging</b> or <b>supportive</b>.'}},
+
+{id:'a16',cat:'person',week:W1,term:'irritating',pos:'adj –',
+ en:'annoying; making you feel impatient',vi:'gây khó chịu, làm người khác bực',focus:['irri','tating'],opp:'pleasant',
+ ex:'His habit of tapping the desk is really irritating.',
+ note:'Double <b>r</b>: i-<b>rr</b>-i-ta-ting. Verb: <b>irritate</b>.',
+ flag:{src:'teacher',wrote:'non-irritating',right:'pleasant / easy-going',text:'"Non-irritating" is used for creams and shampoo, not people. The opposite of an irritating person is <b>pleasant</b>, <b>easy-going</b> or <b>soothing</b>.'}},
+
+{id:'a17',cat:'person',week:W1,term:'childish',pos:'adj –',
+ en:'behaving like a young child (a criticism)',vi:'trẻ con, ấu trĩ',focus:['dish'],opp:'mature',
+ ex:'Stop being childish and apologise.',
+ note:'child + <b>ish</b>. Careful: <b>childlike</b> is positive (innocent); <b>childish</b> is negative.'},
+
+/* ---------- SCHOOL OBJECTS ---------- */
+{id:'s01',cat:'school',week:W1,term:'subject',pos:'noun',
+ en:'an area you study at school, e.g. maths, history',vi:'môn học',focus:['ject'],
+ ex:'My favourite subject is English.'},
+
+{id:'s02',cat:'school',week:W1,term:'compass',pos:'noun',
+ en:'the tool you use to draw circles (also: for finding north)',vi:'com-pa',focus:['ss'],
+ ex:'Use a compass to draw a perfect circle.',
+ note:'Double <b>s</b>. In maths you can also say <b>a pair of compasses</b>.'},
+
+{id:'s03',cat:'school',week:W1,term:'calculator',pos:'noun',
+ en:'a small machine for doing sums',vi:'máy tính (cầm tay)',focus:['cu','ator'],
+ ex:'You cannot use a calculator in this test.',
+ flag:{src:'elena',wrote:'calulater',right:'calculator',text:'Two slips: the missing <b>c</b> (cal-<b>cu</b>-la-tor) and the ending — it is <b>-or</b>, not -er.'}},
+
+{id:'s04',cat:'school',week:W1,term:'pencil case',pos:'noun',
+ en:'a small bag you keep pens and pencils in',vi:'hộp bút',focus:['cil'],
+ ex:'My pencil case is full of broken pencils.',
+ flag:{src:'elena',wrote:'pencle case',right:'pencil case',text:'It is pen-<b>cil</b> (like the pencil you write with) — and <b>two separate words</b>.'}},
+
+{id:'s05',cat:'school',week:W1,term:'pencil sharpener',pos:'noun',
+ en:'the tool that makes a pencil point sharp',vi:'gọt bút chì',focus:['sharp','ener'],
+ ex:'Has anybody got a pencil sharpener?',
+ flag:{src:'elena',wrote:'pencil sharpenor',right:'pencil sharpener',text:'Tools like this usually end <b>-er</b>: sharp<b>ener</b>. (But <b>calculator</b> ends -or — these two are worth learning as a pair.)'}},
+
+{id:'s06',cat:'school',week:W1,term:'rubber',pos:'noun',
+ en:'the thing you use to remove pencil marks (US: eraser)',vi:'cái tẩy, gôm',focus:['bb'],
+ ex:'Can I borrow your rubber? I made a mistake.',
+ flag:{src:'elena',wrote:'Ruber',right:'rubber',text:'Double <b>b</b>: ru<b>bb</b>er. British English = rubber, American English = <b>eraser</b>.'}},
+
+{id:'s07',cat:'school',week:W1,term:'uniform',pos:'noun',
+ en:'the special clothes all students at a school wear',vi:'đồng phục',focus:['ni','form'],
+ ex:'We have to wear a uniform at my school.',
+ note:'<b>uni</b> = one + <b>form</b> = shape. One <b>n</b>, no double letters.'},
+
+{id:'s08',cat:'school',week:W1,term:'schoolbag',alt:['school bag'],pos:'noun',
+ en:'the bag you carry your books to school in',vi:'cặp sách',focus:['ool'],
+ ex:'My schoolbag weighs a ton on Mondays.'},
+
+{id:'s09',cat:'school',week:W1,term:'put on',pos:'phrasal verb',
+ en:'dress yourself in something',vi:'mặc vào, đeo vào',focus:['on'],
+ ex:'Put on your uniform — we are late!',
+ note:'<b>put on</b> = the action of dressing · <b>wear</b> = the state of having it on.'}
+];
+
+/* ---- extra slips from the notebook that are not vocabulary items ---- */
+const EXTRA_FLAGS = [
+  {src:'elena',wrote:'County',right:'Country',
+   text:'The heading of the first column. A <b>county</b> is a region <i>inside</i> a country (like a province). A <b>country</b> is Vietnam, Italy, Japan…'},
+  {src:'elena',wrote:'Auxialary verbs',right:'Auxiliary verbs',
+   text:'aux-<b>il</b>-i-ary. Two <b>i</b>s in the middle: aux<b>i</b>l<b>i</b>ary.'},
+  {src:'elena',wrote:'a good ibea',right:'a good idea',
+   text:'<b>idea</b> — i-d-e-a. No <b>b</b>.'},
+  {src:'elena',wrote:'arguo',right:'argue',
+   text:'Ends <b>-ue</b>: arg<b>ue</b>. Noun: an <b>argument</b> (careful — no <b>e</b> in argument!).'},
+  {src:'elena',wrote:'make someone disappointe',right:'make someone disappointed',
+   text:'The adjective needs the full <b>-ed</b>: disappoint<b>ed</b>. One <b>s</b>, double <b>p</b>.'}
+];
+
+/* ---- grammar reference from the same lesson ---- */
+const REFERENCE = [
+  {title:'Auxiliary verbs (trợ động từ)', rows:[
+    ['Present simple','<b>do / does</b>','<i>Do</i> you like it? · She <i>doesn’t</i> know.'],
+    ['Present continuous','<b>am / is / are</b>','I <i>am</i> studying. · <i>Are</i> they coming?'],
+    ['Present perfect','<b>have / has</b>','I <i>have</i> finished. · He <i>has</i> gone home.']
+  ]},
+  {title:'Nationality endings — the four patterns', rows:[
+    ['<b>-ian / -an</b>','Brazil→Brazil<b>ian</b> · Italy→Ital<b>ian</b> · Hungary→Hungar<b>ian</b> · Russia→Russ<b>ian</b> · Canada→Canad<b>ian</b> · Malaysia→Malays<b>ian</b> · Australia→Austral<b>ian</b>',''],
+    ['<b>-ese</b>','Japan→Japan<b>ese</b> · Lebanon→Leban<b>ese</b> · China→Chin<b>ese</b> · Portugal→Portugu<b>ese</b>',''],
+    ['<b>-ish</b>','Denmark→Dan<b>ish</b> · Finland→Finn<b>ish</b> · England→Engl<b>ish</b> · Spain→Span<b>ish</b>',''],
+    ['<b>-i</b>','Oman→Oman<b>i</b> · Qatar→Qatar<b>i</b> · Iraq→Iraq<b>i</b> · Pakistan→Pakistan<b>i</b>','']
+  ]},
+  {title:'Irregular ones to memorise', rows:[
+    ['Greece','→ Greek','not "Greecian"'],
+    ['Thailand','→ Thai','nothing is added'],
+    ['New Zealand','→ New Zealander','-er, like Londoner'],
+    ['the Philippines','→ Filipino / Filipina','the spelling changes: Ph → F'],
+    ['Uzbekistan','→ Uzbek','like Kazakhstan → Kazakh']
+  ]}
+];
+
+/* ============================================================
+   TEACHER'S TEST — Monday 17 August 2026
+   Meaning → phrase recall, 25 items, 5 correct.
+   Elena answered 7 lines; 5 were accepted (two were marked wrong for
+   spelling/wording: "look down on somone", and "have a good relationship").
+   Edit TESTED / TEST_GOT if the real list differs — everything else follows.
+   ============================================================ */
+const TEST_DATE='17 Aug 2026';
+const TESTED=['p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','p13','p15','p16',
+              'l01','l02','l03','l04','l05','l06','l07','l08','l09','l10','l11','l12'];
+const TEST_GOT=['p07','p13','l02','l06','l08'];
+WORDS.forEach(w=>{if(TESTED.indexOf(w.id)>-1){w.tested=1;w.got=TEST_GOT.indexOf(w.id)>-1?1:0;}});
+
+/* ============================================================
+   ENGINE
+   ============================================================ */
+const KEY='elena-wordlab-v1';
+const DAY=86400000;
+const INT=[0,1,2,4,8,16];           /* Leitner intervals in days */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const today=()=>new Date().toISOString().slice(0,10);
+
+/* ---------- theme: light / dark / auto (follows the tablet) ---------- */
+const THEMES=['auto','light','dark'];
+function applyTheme(){
+  const t=state.theme||'auto';
+  if(t==='auto')document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme',t);
+  const b=document.getElementById('themebtn');
+  if(b)b.textContent=t==='dark'?'🌙':t==='light'?'☀️':'🌗';
+  const m=document.querySelector('meta[name=theme-color]');
+  const dark=t==='dark'||(t==='auto'&&window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches);
+  if(m)m.setAttribute('content',dark?'#15171a':'#faf6f0');
+}
+function cycleTheme(){
+  const i=THEMES.indexOf(state.theme||'auto');
+  state.theme=THEMES[(i+1)%3];save();applyTheme();applyTheme();
+render();
+}
+let storageOK=true;
+let state={p:{},streak:{n:0,last:''},extra:[],voice:1,vi:1,log:[]};
+try{const raw=localStorage.getItem(KEY); if(raw) state=Object.assign(state,JSON.parse(raw));}
+catch(e){storageOK=false;}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){storageOK=false;}}
+
+/* full word list = built-in + anything imported later */
+let ALL=[];
+function rebuild(){ALL=WORDS.concat(state.extra||[]);}
+rebuild();
+
+/* ---------- progress helpers ---------- */
+function P(id){return state.p[id]||(state.p[id]={b:0,r:0,w:0,ls:0,due:0,seen:0});}
+function band(id){const p=state.p[id];if(!p||!p.seen)return'new';if(p.b>=4)return'strong';return'learning';}
+function isDue(id){const p=state.p[id];if(!p||!p.seen)return true;return Date.now()>=p.due;}
+function score(id,ok){
+  const p=P(id);p.seen=1;p.ls=Date.now();
+  if(ok){p.r++;p.b=Math.min(5,p.b+1);}else{p.w++;p.b=Math.max(0,p.b-1);}
+  p.due=Date.now()+INT[p.b]*DAY;save();
+}
+function stats(list){
+  list=list||ALL;
+  let s={total:list.length,strong:0,learning:0,new:0,due:0};
+  list.forEach(w=>{s[band(w.id)]++;if(isDue(w.id))s.due++;});
+  return s;
+}
+function bumpStreak(){
+  const t=today(),y=new Date(Date.now()-DAY).toISOString().slice(0,10);
+  if(state.streak.last===t)return;
+  state.streak.n=(state.streak.last===y)?state.streak.n+1:1;
+  state.streak.last=t;save();
+}
+
+/* ---------- answer checking ---------- */
+function norm(s){
+  return String(s||'').toLowerCase()
+    .replace(/[’‘`]/g,"'").replace(/[-–—]/g,' ')
+    .replace(/\b(somebody|someone|sb\.)\b/g,'sb')
+    .replace(/\b(something|sth\.)\b/g,'sth')
+    .replace(/[.,!?;:"]/g,'').replace(/\s+/g,' ').trim();
+}
+const compact=s=>norm(s).replace(/[^a-z0-9]/g,'');
+function accepts(target,tries){
+  const list=[target].concat(tries||[]);
+  return list.some(x=>norm(x)===norm(CUR.typed)||compact(x)===compact(CUR.typed));
+}
+
+/* Levenshtein alignment → per-letter feedback */
+function align(a,b){ /* a = correct, b = attempt */
+  const n=a.length,m=b.length,d=[];
+  for(let i=0;i<=n;i++){d[i]=[i];}
+  for(let j=1;j<=m;j++){d[0][j]=j;}
+  for(let i=1;i<=n;i++)for(let j=1;j<=m;j++){
+    const c=a[i-1].toLowerCase()===b[j-1].toLowerCase()?0:1;
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);
+  }
+  let i=n,j=m,out=[];
+  while(i>0||j>0){
+    if(i>0&&j>0&&d[i][j]===d[i-1][j-1]+(a[i-1].toLowerCase()===b[j-1].toLowerCase()?0:1)){
+      out.unshift({t:a[i-1].toLowerCase()===b[j-1].toLowerCase()?'eq':'sub',a:a[i-1],b:b[j-1]});i--;j--;
+    }else if(i>0&&d[i][j]===d[i-1][j]+1){out.unshift({t:'miss',a:a[i-1]});i--;}
+    else{out.unshift({t:'extra',b:b[j-1]});j--;}
+  }
+  return out;
+}
+function showAnswer(correct,attempt){
+  const ops=align(correct,attempt||'');
+  let html='';
+  ops.forEach(o=>{
+    if(o.t==='eq')html+=esc(o.a);
+    else if(o.t==='sub'||o.t==='miss')html+='<em>'+esc(o.a)+'</em>';
+  });
+  return html.replace(/ /g,'&nbsp;');
+}
+function showAttempt(correct,attempt){
+  const ops=align(correct,attempt||'');
+  let html='';
+  ops.forEach(o=>{
+    if(o.t==='eq')html+=esc(o.b);
+    else if(o.t==='sub'||o.t==='extra')html+='<em>'+esc(o.b)+'</em>';
+  });
+  return html.replace(/ /g,'&nbsp;');
+}
+function markFocus(word,text){
+  let html=esc(text);
+  (word.focus||[]).concat(word.natFocus||[]).forEach(f=>{
+    if(!f)return;
+    const i=html.toLowerCase().indexOf(String(f).toLowerCase());
+    if(i>-1)html=html.slice(0,i)+'<u>'+html.slice(i,i+f.length)+'</u>'+html.slice(i+f.length);
+  });
+  return html;
+}
+
+/* ---------- speech ---------- */
+let VOICES=[];
+function loadVoices(){VOICES=window.speechSynthesis?speechSynthesis.getVoices():[];}
+if(window.speechSynthesis){loadVoices();speechSynthesis.onvoiceschanged=loadVoices;}
+function say(text,slow,letters){
+  if(!window.speechSynthesis||!state.voice)return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(letters?String(text).split('').join(', '):text);
+  const v=VOICES.find(v=>/en-GB/i.test(v.lang))||VOICES.find(v=>/^en/i.test(v.lang));
+  if(v)u.voice=v; u.lang=v?v.lang:'en-GB'; u.rate=letters?0.6:(slow?0.7:0.92);
+  speechSynthesis.speak(u);
+}
+
+/* ---------- syllables & word parts ----------
+   Spelling research is clear that learners fix long words by breaking them into
+   pronounceable chunks (syllables) and meaningful chunks (morphemes: un-reli-able).
+   PARTS holds hand-checked splits; anything not listed is split by rule. */
+const PARTS={
+ 'greece':'Greece','england':'Eng|land','korea':'Ko|re|a','uzbekistan':'Uz|bek|i|stan',
+ 'the philippines':'the/Phi|lipp|ines','new zealand':'New/Zea|land','south korea':'South/Ko|re|a',
+ 'australian':'Aus|tra|li|an','brazilian':'Bra|zil|ian','italian':'I|tal|ian','hungarian':'Hun|gar|i|an',
+ 'japanese':'Jap|an|ese','lebanese':'Leb|an|ese','danish':'Dan|ish','english':'Eng|lish',
+ 'finnish':'Finn|ish','new zealander':'New/Zea|land|er','south korean':'South/Ko|re|an','filipino':'Fi|li|pi|no',
+ 'exotic':'ex|ot|ic','cooperative':'co|op|er|a|tive','mature':'ma|ture','thoughtful':'thought|ful',
+ 'sympathetic':'sym|pa|thet|ic','hard-working':'hard/work|ing','reliable':'re|li|a|ble',
+ 'energetic':'en|er|get|ic','responsible':'re|spon|si|ble','enthusiastic':'en|thu|si|as|tic',
+ 'sensitive':'sen|si|tive','caring':'car|ing','organised':'or|gan|ised','cheeky':'cheek|y',
+ 'critical':'crit|i|cal','irritating':'ir|ri|tat|ing','childish':'child|ish','patient':'pa|tient',
+ 'uniform':'u|ni|form','calculator':'cal|cu|la|tor','pencil case':'pen|cil/case',
+ 'pencil sharpener':'pen|cil/sharp|en|er','rubber':'rub|ber','compass':'com|pass',
+ 'subject':'sub|ject','schoolbag':'school|bag','unreliable':'un|re|li|a|ble',
+ 'irresponsible':'ir|re|spon|si|ble','thoughtless':'thought|less'
+};
+function sylOne(s){
+  const V='aeiouyAEIOUY',isV=c=>V.includes(c);
+  let g=[],i=0;
+  while(i<s.length){if(isV(s[i])){let j=i;while(j<s.length&&isV(s[j]))j++;g.push([i,j]);i=j;}else i++;}
+  if(g.length<2)return[s];
+  let cuts=[];
+  for(let k=0;k<g.length-1;k++){
+    const e=g[k][1],n=g[k+1][0],c=n-e;
+    let cut=c===0?n:(c===1?e:e+Math.floor(c/2));
+    if(cut<s.length-1)cuts.push(cut);
+  }
+  let out=[],prev=0;cuts.forEach(c=>{if(c>prev){out.push(s.slice(prev,c));prev=c;}});
+  out.push(s.slice(prev));return out.filter(x=>x);
+}
+/* chunks(): returns {parts, ends} where ends holds the indices that finish a word,
+   so the pieces can be reassembled exactly (spaces included). */
+function chunks(w,ans){
+  const key=String(ans).toLowerCase();
+  const phrasey=/phrasal|expression|phrase/.test(w.pos||'');
+  const toks=String(ans).split(/([\s-]+)/);          /* keeps the separators */
+  const plain=toks.filter((x,i)=>i%2===0);
+  const seps=toks.filter((x,i)=>i%2===1);
+  let words;
+  if(PARTS[key])words=PARTS[key].split('/').map(x=>x.split('|'));
+  else if(phrasey&&plain.length>1)words=plain.map(x=>[x]);
+  else words=plain.map(x=>sylOne(x));
+  const parts=[],ends=[];
+  words.forEach(cs=>{cs.forEach(c=>parts.push(c));ends.push(parts.length-1);});
+  return{parts:parts,ends:ends,seps:seps};
+}
+/* rebuild a string from the chunks tapped so far, putting spaces and hyphens back */
+function joinParts(c,arr){
+  return arr.map((p,i)=>{
+    const j=c.ends.indexOf(i);
+    return p+(j>-1&&i<c.parts.length-1?(c.seps[j]||' '):'');
+  }).join('');
+}
+function sylHTML(w,ans){
+  const c=chunks(w,ans);
+  return c.parts.map((p,i)=>`<button class="syl" onclick="say('${jsq(p)}')">${esc(p)}</button>`+
+    (i<c.parts.length-1?(c.ends.indexOf(i)>-1?'<span class="gap"></span>':'<span class="dot">·</span>'):'')).join('');
+}
+
+/* ---------- drill targets ---------- */
+function targets(w,mode){
+  if(w.cat==='nations'){
+    const t=[{kind:'country',ans:w.term,focus:w.focus,q:'Which country?',sub:w.vi,say:w.term}];
+    if(w.nat)t.push({kind:'nat',ans:w.nat,focus:w.natFocus,q:'Nationality — a person from '+w.term+' is…',sub:'',say:w.nat});
+    if(mode==='nat'&&w.nat)return t.filter(x=>x.kind==='nat');
+    return t;
+  }
+  return [{kind:'word',ans:w.term,focus:w.focus,q:w.en||'',sub:w.vi,say:w.term}];
+}
+function hasSentence(w){return w.ex&&w.ex.toLowerCase().includes(String(w.term).toLowerCase());}
+function blankSentence(w){
+  const i=w.ex.toLowerCase().indexOf(String(w.term).toLowerCase());
+  return esc(w.ex.slice(0,i))+'<u style="color:var(--coral)">'+'_'.repeat(Math.min(14,w.term.length))+'</u>'+esc(w.ex.slice(i+w.term.length));
+}
+function trapWords(){return ALL.filter(w=>w.flag&&w.flag.src==='elena'&&!w.flag.noDrill);}
+function pool(mode,cat){
+  let list=ALL.filter(w=>!cat||w.cat===cat);
+  if(mode==='nat')list=list.filter(w=>w.cat==='nations'&&w.nat);
+  if(mode==='sent')list=list.filter(hasSentence);
+  if(mode==='recall')list=ALL.filter(w=>w.en);
+  if(mode==='test')list=ALL.filter(w=>w.tested);
+  if(mode==='traps')list=trapWords();
+  return list;
+}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function mutate(s){
+  const v='aeiou';let a=s.split('');
+  for(let k=0;k<12;k++){
+    const i=Math.floor(Math.random()*a.length);
+    if(/[a-z]/i.test(a[i])){
+      if(Math.random()<.5){a.splice(i,0,a[i]);}                 /* double a letter */
+      else if(v.includes(a[i].toLowerCase())){a[i]=v[(v.indexOf(a[i].toLowerCase())+1)%5];}
+      else continue;
+      return a.join('');
+    }
+  }
+  return s+'e';
+}
+
+/* ============================================================
+   ROUTING
+   ============================================================ */
+let TAB='home';
+const TABS=[['home','🏠','Home'],['practice','🎯','Practice'],['words','📚','Words'],['slips','⚠️','Slips'],['more','⚙️','More']];
+function go(t){TAB=t;CUR.on=false;if(GAME.on)gameQuit();TAB=t;render();window.scrollTo(0,0);}
+function renderTabs(){
+  $('#tabs').innerHTML=TABS.map(([k,i,l])=>
+    `<button class="${TAB===k?'on':''}" onclick="go('${k}')">${i}<span class="lbl">${l}</span></button>`).join('');
+}
+function render(){
+  renderTabs();
+  $('#streak').innerHTML='🔥 '+(state.streak.n||0);
+  const v=$('#view');
+  if(GAME.on){v.innerHTML=gameView();return;}
+  if(CUR.on){v.innerHTML=sessionView();afterSession();return;}
+  if(TAB==='home')v.innerHTML=homeView();
+  if(TAB==='practice')v.innerHTML=practiceView();
+  if(TAB==='words'){v.innerHTML=wordsView();}
+  if(TAB==='slips')v.innerHTML=slipsView();
+  if(TAB==='more')v.innerHTML=moreView();
+}
+
+/* ---------- HOME ---------- */
+function ring(pct){
+  const r=48,c=2*Math.PI*r,off=c*(1-pct/100);
+  return `<div class="ring"><svg width="112" height="112" viewBox="0 0 112 112">
+    <circle cx="56" cy="56" r="${r}" fill="none" stroke="var(--line2)" stroke-width="12"/>
+    <circle cx="56" cy="56" r="${r}" fill="none" stroke="var(--teal)" stroke-width="12"
+      stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}"/>
+  </svg><b>${pct}%<i>mastered</i></b></div>`;
+}
+function missed(){return ALL.filter(w=>w.tested&&!w.got);}
+function homeView(){
+  const s=stats();
+  const pct=s.total?Math.round(s.strong/s.total*100):0;
+  const flags=ALL.filter(w=>w.flag).length+EXTRA_FLAGS.length;
+  const weeks=[...new Set(ALL.map(w=>w.week))];
+  let cats=Object.keys(CATS).map(k=>{
+    const list=ALL.filter(w=>w.cat===k);if(!list.length)return'';
+    const st=stats(list),p=st.total?Math.round(st.strong/st.total*100):0;
+    return `<button class="catrow" onclick="startPick('${k}')">
+      <div class="ic">${CATS[k].icon}</div>
+      <div class="nm"><b>${CATS[k].name}</b>
+        <div class="bar"><i style="width:${p}%"></i></div></div>
+      <span class="chip">${st.strong}/${st.total}</span></button>`;
+  }).join('');
+  return `
+  ${storageOK?'':'<div class="banner"><b>Heads-up:</b> this preview cannot save progress. Download the file and open it from the tablet (or from GitHub Pages) and every score will be remembered.</div>'}
+  <div class="card">
+    <div class="hero">
+      ${ring(pct)}
+      <div style="flex:1">
+        <h2 style="font-size:21px">Hi Elena 👋</h2>
+        <p class="small muted" style="margin:6px 0 0">${s.total} words from ${weeks.length} week${weeks.length>1?'s':''}.
+        <b>${s.due}</b> ${s.due===1?'word is':'words are'} ready to review today.</p>
+        <div class="statgrid">
+          <div class="stat"><b>${s.strong}</b><span>Strong</span></div>
+          <div class="stat"><b>${s.learning}</b><span>Learning</span></div>
+          <div class="stat"><b>${s.new}</b><span>New</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px"><button class="btn" onclick="startSmart()">▶︎ Start today's practice</button></div>
+    <p class="small muted center" style="margin:10px 0 0">${smartLabel()}</p>
+  </div>
+
+  <div class="card hot">
+    <div class="row" style="align-items:flex-start">
+      <div style="font-size:26px">📋</div>
+      <div style="flex:1">
+        <b>Class test, ${TEST_DATE} — 5 / 25</b>
+        <p class="small muted" style="margin:4px 0 10px">${missed().length} of those 25 phrases still need to come back from memory.
+        They are meaning → phrase, which is harder than recognising a word: that is what these drills build.
+        ${(state.tests||[]).length?`Best practice score so far: <b>${Math.max.apply(null,state.tests.map(t=>t.r))}/25</b>.`:''}</p>
+        <button class="btn coral" onclick="start('recall',null,10)">🎯 Drill the missed phrases</button>
+        <div style="height:8px"></div>
+        <button class="btn ghost sm" onclick="start('test',null,25)">📋 Take the mock test (25)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card warm">
+    <div class="row" style="align-items:flex-start">
+      <div style="font-size:26px">🚗</div>
+      <div style="flex:1">
+        <b>Morning car ride — Chunk Rush</b>
+        <p class="small muted" style="margin:4px 0 10px">Tapping only, no keyboard: build words from their chunks before the clock runs out.
+        ${bestFor(300)||bestFor(90)?`Best so far: <b>${bestFor(300)}</b> over five minutes, <b>${bestFor(90)}</b> in ninety seconds.`:'Perfect for five minutes in the car.'}</p>
+        <div class="grid2">
+          <button class="btn" onclick="gameStart(300)">▶︎ 5 minutes${bestFor(300)?` · best ${bestFor(300)}`:''}</button>
+          <button class="btn ghost" onclick="gameStart(90)">⚡️ 90 seconds${bestFor(90)?` · best ${bestFor(90)}`:''}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tiny" style="margin-bottom:10px">Today's 10-minute plan</div>
+    <button class="mode" onclick="start('lcwc',null,6)"><div class="ic" style="background:var(--violet-soft)">👁</div>
+      <div><b>1 · Meet 6 words — Look · Cover · Write · Check</b><p>Study it in syllables, hear it, cover it, write it. Six words is plenty.</p></div></button>
+    <button class="mode" onclick="start('build',null,8)"><div class="ic" style="background:var(--gold-soft)">🧱</div>
+      <div><b>2 · Build them from parts</b><p>un·re·li·a·ble. Chunks are how long words get remembered.</p></div></button>
+    <button class="mode" onclick="start('spell',null,10)"><div class="ic" style="background:var(--teal-soft)">✍️</div>
+      <div><b>3 · Listen &amp; Spell</b><p>Hear it, type it, see exactly which letters slipped.</p></div></button>
+    <button class="mode" onclick="start('recall',null,8)"><div class="ic" style="background:var(--coral-soft)">🎯</div>
+      <div><b>4 · Meaning → phrase</b><p>The test format. No sound, no cues — pull it out of memory.</p></div></button>
+  </div>
+
+  <div class="card">
+    <div class="tiny" style="margin-bottom:4px">By category</div>
+    ${cats}
+  </div>
+
+  <div class="card">
+    <div class="row" style="align-items:flex-start">
+      <div style="font-size:26px">⚠️</div>
+      <div style="flex:1">
+        <b>${flags} corrections logged</b>
+        <p class="small muted" style="margin:4px 0 10px">Split into your copying slips and things the notes in the book got wrong — worth showing your teacher.</p>
+        <button class="btn ghost sm" onclick="go('slips')">See all corrections →</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ---------- PRACTICE ---------- */
+const MODES=[
+  ['recall','🎯','Meaning → phrase','Exactly the teacher\'s test format: you read the meaning and produce the phrase from memory, with no sound to help you. The single best predictor of test performance.','var(--coral-soft)'],
+  ['lcwc','👁','Look · Cover · Write · Check','Meet a new word properly: study it in syllables, hear it, then it hides and you write it from memory. The oldest and best-evidenced spelling routine there is.','var(--violet-soft)'],
+  ['build','🧱','Build it from parts','Assemble the word from its real chunks — <i>un·re·li·a·ble</i>, <i>thought·less</i>, or the words of a phrasal verb in the right order.','var(--gold-soft)'],
+  ['spell','✍️','Listen &amp; Spell','Hear it, type it from memory. Wrong letters are shown, then you copy the word once. This is the core drill.','var(--teal-soft)'],
+  ['sent','📝','Sentence dictation','Type the missing word inside a real sentence — spelling under the same pressure as the exam.','var(--ok-soft)'],
+  ['gaps','🧩','Fill the gaps','Only the hardest letters are hidden. Good when a word is nearly there.','var(--gold-soft)'],
+  ['traps','🪤','Beat your traps','Your own mistakes beside the correct spelling. Choose, then always type the right one last.','var(--coral-soft)'],
+  ['nat','🌍','Nationality builder','Country in, nationality out: -ian / -ese / -ish / -i.','var(--violet-soft)'],
+  ['match','🔗','Meaning match','Read the meaning, pick the word, then write it.','var(--chip)'],
+  ['test','📋','Mock test (25 words)','The real thing: the 25 words from the ${TEST_DATE} test, no hints, no second chances. Your score is saved so you can watch it climb.','var(--chip)'],
+  ['learn','🃏','Look &amp; listen','Just browse and hear them. No score, no stress.','var(--chip)']
+];
+let PICK={mode:null};
+function practiceView(){
+  if(PICK.mode){
+    const m=MODES.find(x=>x[0]===PICK.mode);
+    const cats=Object.keys(CATS).filter(k=>pool(PICK.mode,k).length);
+    return `<div class="card">
+      <button class="btn ghost sm" onclick="PICK.mode=null;render()">← modes</button>
+      <h2 style="margin:14px 0 4px">${m[1]} ${m[2]}</h2>
+      <p class="small muted">${m[3]}</p>
+    </div>
+    <div class="card"><div class="tiny" style="margin-bottom:10px">Choose a set</div>
+      <button class="btn" onclick="start('${PICK.mode}',null,10)">Everything (${pool(PICK.mode,null).length} words)</button>
+      <div style="height:10px"></div>
+      ${cats.map(k=>`<button class="btn ghost" style="margin-bottom:9px" onclick="start('${PICK.mode}','${k}',10)">
+        ${CATS[k].icon} ${CATS[k].name} <span class="muted">· ${pool(PICK.mode,k).length}</span></button>`).join('')}
+    </div>`;
+  }
+  return `<div class="card warm">
+    <div class="tiny">The game</div>
+    <h2 style="font-size:19px;margin:6px 0 4px">🏃‍♀️ Chunk Rush</h2>
+    <p class="small muted" style="margin:0 0 12px">Build words from their chunks against the clock — with decoy chunks from other
+    words mixed in. A wrong tap costs 3 seconds, a hint that places the next chunk costs 5 seconds,
+    listening to the answer costs 5 points, and a run of correct words multiplies your points up to ×5.
+    No typing, so it works one-handed in the car.
+    ${bestFor(300)||bestFor(90)?`<br><span class="pill" style="margin-top:8px">🥇 5 min: ${bestFor(300)}</span>
+      <span class="pill" style="margin-top:8px">⚡️ 90 s: ${bestFor(90)}</span>`:''}</p>
+    <div class="grid2">
+      <button class="btn" onclick="gameStart(300)">▶︎ 5 minutes</button>
+      <button class="btn ghost" onclick="gameStart(90)">⚡️ 90 seconds</button>
+    </div>
+  </div>
+  ${scoreboardCard()}
+  <div class="card"><div class="tiny">Pick a drill</div>
+    <p class="small muted" style="margin:8px 0 0">Every mode feeds the same memory schedule: get a word right and it comes back later, get it wrong and it comes back sooner.</p></div>
+    ${MODES.map(m=>`<button class="mode" onclick="PICK.mode='${m[0]}';render()">
+      <div class="ic" style="background:${m[4]}">${m[1]}</div>
+      <div><b>${m[2]}</b><p>${m[3]}</p></div></button>`).join('')}`;
+}
+/* the app chooses the right rung of the ladder for her instead of asking */
+function smartPlan(){
+  const news=ALL.filter(w=>band(w.id)==='new');
+  const miss=missed().filter(w=>band(w.id)!=='strong');
+  if(news.length>=4)return{m:'lcwc',n:6,why:'You have '+news.length+' words you have never written yet — we will meet six of them properly first.'};
+  if(miss.length)return{m:'recall',n:Math.min(10,miss.length),why:'Straight to the '+miss.length+' phrases from the class test that are not solid yet.'};
+  const due=ALL.filter(w=>isDue(w.id));
+  if(due.length)return{m:'spell',n:Math.min(10,due.length),why:due.length+' words are due for review today.'};
+  return{m:'sent',n:8,why:'Nothing is due — so let us practise spelling inside full sentences.'};
+}
+function smartLabel(){return smartPlan().why;}
+function startSmart(){const p=smartPlan();start(p.m,null,p.n);}
+function startPick(cat){TAB='practice';PICK.mode=null;start('spell',cat,10);}
+
+/* ---------- SESSION ---------- */
+let CUR={on:false};
+function start(mode,cat,n){
+  let list=pool(mode,cat);
+  if(mode==='test')n=list.length;
+  if(!list.length){alert('No words in that set yet.');return;}
+  /* due first, then new, then the rest */
+  list=shuffle(list).sort((a,b)=>{
+    if(mode!=='test'){
+      const ma=(a.tested&&!a.got)?0:1,mb=(b.tested&&!b.got)?0:1;
+      if(ma!==mb)return ma-mb;
+    }
+    const da=isDue(a.id)?0:1,db=isDue(b.id)?0:1;
+    if(da!==db)return da-db;
+    return (state.p[a.id]?state.p[a.id].b:0)-(state.p[b.id]?state.p[b.id].b:0);
+  }).slice(0,n||10);
+  const q=[];
+  list.forEach(w=>{
+    const ts=targets(w,mode);
+    let t;
+    if(mode==='traps'&&w.flag){
+      if(w.flag.drillTerm)t={kind:'word',ans:w.flag.drillTerm,focus:[],q:'the opposite of '+w.term,sub:'',say:w.flag.drillTerm};
+      else if(w.flag.target==='nat'&&ts.length>1)t=ts[1];
+      else t=ts[0];
+    }else t=(mode==='nat')?ts[0]:ts[Math.floor(Math.random()*ts.length)];
+    q.push({w:w,t:t});
+  });
+  CUR={on:true,mode:mode,cat:cat,q:shuffle(q),i:0,typed:'',stage:mode==='lcwc'?'look':'ask',
+       res:[],right:0,chunks:null,bag:[],built:[],taken:[]};
+  TAB='practice';render();
+}
+function cur(){return CUR.q[CUR.i];}
+function dots(){
+  return '<div class="dots">'+CUR.q.map((_,i)=>{
+    const r=CUR.res[i];
+    return `<i class="${i===CUR.i?'now':(r===1?'good':(r===0?'bad':''))}"></i>`;}).join('')+'</div>';
+}
+function gapText(item){
+  let t=item.t.ans,f=(item.t.focus||[])[0];
+  if(!f)f=t.replace(/\s/g,'').slice(1,3);
+  const i=t.toLowerCase().indexOf(String(f).toLowerCase());
+  if(i<0)return t.split('').map((c,k)=>k%3===1&&/[a-z]/i.test(c)?'_':c).join('');
+  return t.slice(0,i)+'_'.repeat(f.length)+t.slice(i+f.length);
+}
+function options(item){
+  if(CUR.mode==='traps'){
+    const w=item.w,right=item.t.ans;
+    const wrong=(w.flag&&(w.flag.trap||w.flag.wrote))||mutate(right);
+    let third=mutate(right);let guard=0;
+    while((norm(third)===norm(right)||norm(third)===norm(wrong))&&guard++<10)third=mutate(right);
+    return shuffle([right,wrong,third]).map(x=>({txt:x,ok:norm(x)===norm(right)}));
+  }
+  /* match mode: pick the word for a meaning */
+  const same=ALL.filter(w=>w.cat===item.w.cat&&w.id!==item.w.id);
+  const dis=shuffle(same).slice(0,3).map(w=>({txt:w.term,ok:false}));
+  return shuffle(dis.concat([{txt:item.w.term,ok:true}]));
+}
+function sessionView(){
+  if(CUR.i>=CUR.q.length)return doneView();
+  const it=cur(),w=it.w,t=it.t,mode=CUR.mode;
+  const head=`<div class="card" style="padding:12px 16px">
+    <div class="row"><button class="btn ghost sm" onclick="quit()">✕</button>
+      <div style="flex:1;text-align:center" class="tiny">${MODES.find(m=>m[0]===mode)[2].replace('&amp;','&')} · ${CUR.i+1}/${CUR.q.length}</div>
+      <span class="chip ${band(w.id)==='strong'?'strong':(band(w.id)==='new'?'new':'learn')}">${band(w.id)}</span></div>
+    ${dots()}</div>`;
+
+  /* ---- flashcards ---- */
+  if(mode==='learn'){
+    const flipped=CUR.stage==='fb';
+    return head+`<div class="qcard center">
+      <div class="prompt">${w.cat==='nations'?'Country':(w.pos||'word')}</div>
+      <div class="qdef" style="font-size:30px">${markFocus(w,t.ans)}</div>
+      <button class="audiobtn" style="margin-top:16px" onclick="say('${jsq(t.say)}')">🔊 Hear it</button>
+      ${flipped?`<div class="fb good" style="text-align:left">
+        ${w.cat==='nations'?`<b>Nationality</b><div class="answer" style="font-size:22px">${esc(w.nat||'')}</div>
+           <div class="small" style="margin-top:8px"><b>Language:</b> ${esc(w.lang||'')}</div>`
+         :`<b>Meaning</b><div>${esc(w.en||'')}</div>`}
+        ${state.vi&&w.vi?`<div class="qvi">🇻🇳 ${esc(w.vi)}</div>`:''}
+        ${w.ex?`<div class="qex">${esc(w.ex)}</div>`:''}
+        ${w.note?`<div class="small" style="margin-top:10px">💡 ${w.note}</div>`:''}
+      </div>
+      <div style="height:12px"></div><button class="btn" onclick="next(1)">Got it →</button>`
+      :`<div style="height:14px"></div><button class="btn ghost" onclick="CUR.stage='fb';render()">Show meaning</button>`}
+    </div>`;
+  }
+
+  /* ---- choice modes ---- */
+  if(mode==='traps'||mode==='match'){
+    if(!CUR.opts)CUR.opts=options(it);
+    const asked=CUR.stage!=='ask';
+    const q=mode==='traps'
+      ? `<div class="prompt">Which spelling is correct?</div><div class="qdef">${esc(w.en||w.vi||t.ans)}</div>`
+      : `<div class="prompt">Which word means this?</div><div class="qdef">${esc(w.en||'')}</div>${state.vi&&w.vi?`<div class="qvi">🇻🇳 ${esc(w.vi)}</div>`:''}`;
+    return head+`<div class="qcard">${q}<div style="height:16px"></div>
+      ${CUR.opts.map((o,k)=>`<button class="opt ${asked?(o.ok?'right':(CUR.picked===k?'wrong':'')):''}"
+        ${asked?'':`onclick="choose(${k})"`}><span class="k">${'ABCD'[k]}</span>${esc(o.txt)}</button>`).join('')}
+      ${asked?feedback(it,CUR.opts[CUR.picked].txt):''}</div>`;
+  }
+
+  /* ---- Look · Cover · Write · Check : study step ---- */
+  if(mode==='lcwc'&&CUR.stage==='look'){
+    return head+`<div class="qcard center">
+      <div class="prompt">1 · Look at it carefully</div>
+      <div class="qdef" style="font-size:31px">${markFocus(w,t.ans)}</div>
+      <div class="sylrow">${sylHTML(w,t.ans)}</div>
+      <div class="small muted">tap any chunk to hear it</div>
+      <button class="audiobtn" style="margin-top:14px" onclick="say('${jsq(t.say)}')">🔊 2 · Say it out loud with me</button>
+      <div class="small muted" style="margin-top:12px">${esc(w.cat==='nations'?(w.vi||''):(w.en||''))}</div>
+      ${w.note?`<div class="small" style="margin-top:10px;text-align:left">💡 ${w.note}</div>`:''}
+      <div style="height:14px"></div>
+      <button class="btn" onclick="CUR.stage='ask';render()">3 · Cover it &amp; write it →</button>
+    </div>`;
+  }
+
+  /* ---- Build it from parts ---- */
+  if(mode==='build'){
+    if(!CUR.chunks){const c=chunks(w,t.ans);CUR.chunks=c;CUR.bag=shuffle(c.parts);CUR.built=[];}
+    const built=joinParts(CUR.chunks,CUR.built);
+    const used=CUR.built.slice();
+    return head+`<div class="qcard">
+      <div class="prompt">Build the word</div>
+      <div class="qdef">${esc(w.cat==='nations'?(t.kind==='nat'?'A person from '+w.term:w.vi):(w.en||t.q))}</div>
+      ${state.vi&&w.vi&&w.cat!=='nations'?`<div class="qvi">🇻🇳 ${esc(w.vi)}</div>`:''}
+      <div class="buildbox">${built?esc(built):'<span class="muted">tap the chunks in order</span>'}</div>
+      <div class="letters">${CUR.bag.map((p,k)=>{
+        const gone=countIn(used,p)>=countIn(CUR.bag.slice(0,k+1),p)?'':'';
+        return `<button class="syl big ${CUR.taken.includes(k)?'off':''}" ${CUR.taken.includes(k)?'':`onclick="tapPart(${k})"`}>${esc(p)}</button>`;}).join('')}</div>
+      <div class="hintrow">
+        <button class="btn ghost sm" onclick="CUR.built.pop();CUR.taken.pop();render()">⌫ undo</button>
+        <button class="btn ghost sm" onclick="say('${jsq(t.say)}')">🔊 hear it</button>
+        <button class="btn sm" onclick="CUR.typed=joinParts(CUR.chunks,CUR.built);check()">Check</button>
+      </div>
+      ${CUR.stage==='fb'?feedback(it,CUR.typed):''}
+    </div>`;
+  }
+
+  /* ---- typing modes: spell / gaps / nat / sent / lcwc-write ---- */
+  let q='';
+  if(mode==='spell'){
+    q=`<div class="prompt">${t.kind==='nat'?'Nationality':(w.cat==='nations'?'Country':(w.pos||'Word'))}</div>
+       <div class="qdef">${esc(t.q)}</div>${state.vi&&t.sub?`<div class="qvi">🇻🇳 ${esc(t.sub)}</div>`:''}
+       <button class="audiobtn" style="margin-top:14px" onclick="say('${jsq(t.say)}')">🔊 Hear the word</button>`;
+  }else if(mode==='gaps'){
+    q=`<div class="prompt">Fill in the missing letters</div>
+       <div class="qdef" style="font-size:32px;letter-spacing:.06em">${esc(gapText(it))}</div>
+       ${`<div class="small muted" style="margin-top:8px">${esc(w.en||t.q)}</div>`}
+       <button class="audiobtn" style="margin-top:14px" onclick="say('${jsq(t.say)}')">🔊 Hear the word</button>`;
+  }else if(mode==='sent'){
+    q=`<div class="prompt">Type the missing word</div>
+       <div class="qdef" style="font-size:21px;line-height:1.5">${blankSentence(w)}</div>
+       ${state.vi&&w.vi?`<div class="qvi">🇻🇳 ${esc(w.vi)}</div>`:''}
+       <button class="audiobtn" style="margin-top:14px" onclick="say('${jsq(w.ex)}')">🔊 Hear the whole sentence</button>`;
+  }else if(mode==='recall'||mode==='test'){
+    const cue=(state.p[w.id]&&state.p[w.id].w>0&&mode==='recall');
+    q=`<div class="prompt">${mode==='test'?'Mock test — write the phrase':'Write the phrase that means this'}</div>
+       <div class="qdef">${esc(w.en||t.q)}</div>
+       ${state.vi&&w.vi&&mode!=='test'?`<div class="qvi">🇻🇳 ${esc(w.vi)}</div>`:''}
+       ${cue?`<div class="small muted" style="margin-top:10px">cue: <b>${esc(firstLetters(t.ans))}</b></div>`:''}`;
+  }else if(mode==='lcwc'){
+    q=`<div class="prompt">4 · Write it from memory</div>
+       <div class="qdef">${esc(w.cat==='nations'?(t.kind==='nat'?'the nationality for '+w.term:w.vi):(w.en||t.q))}</div>
+       <button class="audiobtn" style="margin-top:14px" onclick="say('${jsq(t.say)}')">🔊 Hear it again</button>`;
+  }else{
+    q=`<div class="prompt">Nationality</div>
+       <div class="qdef">A person from ${esc(w.term)} is…</div>
+       <div class="small muted" style="margin-top:6px">Language: ${esc(w.lang||'')}</div>`;
+  }
+  const st=CUR.stage;
+  return head+`<div class="qcard">${q}
+    <input class="spellbox ${st==='fb'?(CUR.ok?'good':'bad'):''}" id="inp" autocomplete="off"
+      autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="type it here"
+      value="${esc(CUR.typed)}" ${st==='fb'?'disabled':''}>
+    ${st==='ask'?`<div style="height:12px"></div><button class="btn" onclick="check()">Check</button>
+       ${mode==='test'?'':`<div class="hintrow"><button class="btn ghost sm" onclick="hint()">💡 First letters</button>
+       ${mode==='recall'?'':`<button class="btn ghost sm" onclick="say('${jsq(t.say)}',1)">🐢 Slower</button>`}</div>`}`
+    :feedback(it,CUR.typed)}
+  </div>`;
+}
+function feedback(it,attempt){
+  const w=it.w,t=it.t,ok=CUR.ok;
+  /* production always comes last: after a mistake, and after any multiple-choice */
+  const fix=CUR.mode==='test'?false:((!ok&&CUR.mode!=='learn')||CUR.mode==='traps'||CUR.mode==='match');
+  const trick=(state.mn||{})[w.id]||'';
+  return `<div class="fb ${ok?'good':'bad'}">
+    <b>${ok?'✓ Correct!':'Not quite — look at the red letters'}</b>
+    <div class="answer">${ok?markFocus(w,t.ans):showAnswer(t.ans,attempt)}</div>
+    ${ok?'':`<div class="yours">you typed: ${showAttempt(t.ans,attempt)}</div>`}
+    ${w.note&&!ok?`<div class="small" style="margin-top:10px">💡 ${w.note}</div>`:''}
+    ${w.flag?`<div class="note"><b>${w.flag.src==='elena'?'📝 Your copy slip':'🧑‍🏫 Check with your teacher'}:</b> ${w.flag.text}</div>`:''}
+    ${t.kind==='nat'?`<div class="small" style="margin-top:10px"><b>Language:</b> ${esc(w.lang||'')}</div>`:''}
+    <div class="sylrow" style="justify-content:flex-start">${sylHTML(w,t.ans)}</div>
+    ${w.ex?`<div class="qex">${esc(w.ex)}</div>`:''}
+    ${state.vi&&(w.vi||t.sub)?`<div class="qvi">🇻🇳 ${esc(w.vi||t.sub)}</div>`:''}
+    <div class="hintrow" style="margin-top:12px">
+      <button class="btn ghost sm" onclick="say('${jsq(t.say)}')">🔊 Say it</button>
+      <button class="btn ghost sm" onclick="say('${jsq(t.ans)}',0,1)">🔤 Letter by letter</button>
+    </div>
+    <div class="tiny" style="margin-top:14px">My own memory trick</div>
+    <input class="search" style="margin-top:6px;font-size:15px" placeholder="e.g. Mala­ysia hides Malay"
+      value="${esc(trick)}" onchange="saveTrick('${w.id}',this.value)">
+  </div>
+  ${fix?`<div class="card" style="margin-top:12px;background:var(--card2)">
+      <div class="tiny">Copy it once to lock it in</div>
+      <input class="spellbox" id="fixinp" autocomplete="off" autocapitalize="off" autocorrect="off"
+        spellcheck="false" placeholder="type it here" oninput="checkFix()">
+      <div id="fixmsg" class="small muted" style="margin-top:8px">Type <b>${esc(t.ans)}</b> to continue.</div>
+    </div>`
+   :`<div style="height:12px"></div><button class="btn" onclick="next()">Next →</button>`}`;
+}
+function afterSession(){
+  const i=$('#inp');
+  if(i&&!i.disabled){i.focus();i.oninput=e=>{CUR.typed=e.target.value;};
+    i.onkeydown=e=>{if(e.key==='Enter')check();};}
+  const f=$('#fixinp');if(f)f.focus();
+}
+function firstLetters(s){return s.split(/\s+/).map(x=>x[0]+'_'.repeat(Math.max(0,x.length-1))).join(' ');}
+function countIn(a,x){return a.filter(y=>y===x).length;}
+function tapPart(k){CUR.built.push(CUR.bag[k]);CUR.taken.push(k);render();}
+function saveTrick(id,v){state.mn=state.mn||{};if(v.trim())state.mn[id]=v.trim();else delete state.mn[id];save();}
+function jsq(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+function hint(){
+  const t=cur().t;const n=Math.max(2,Math.ceil(t.ans.length*0.35));
+  CUR.typed=t.ans.slice(0,n);render();
+}
+function check(){
+  const it=cur();
+  if(!CUR.typed.trim())return;
+  CUR.ok=accepts(it.t.ans,it.w.alt);
+  CUR.stage='fb';CUR.res[CUR.i]=CUR.ok?1:0;if(CUR.ok)CUR.right++;
+  score(it.w.id,CUR.ok);
+  if(!CUR.ok&&CUR.mode!=='test')CUR.q.push({w:it.w,t:it.t});   /* see it again this session */
+  if(CUR.mode!=='recall'||CUR.stage==='fb')say(it.t.ans);
+  render();
+}
+function choose(k){
+  const it=cur();CUR.picked=k;CUR.ok=CUR.opts[k].ok;
+  CUR.typed=CUR.opts[k].txt;
+  CUR.stage='fb';CUR.res[CUR.i]=CUR.ok?1:0;if(CUR.ok)CUR.right++;
+  score(it.w.id,CUR.ok);
+  if(!CUR.ok)CUR.q.push({w:it.w,t:it.t});
+  say(it.t.ans);render();
+}
+function checkFix(){
+  const it=cur(),v=$('#fixinp').value;
+  const good=norm(v)===norm(it.t.ans)||compact(v)===compact(it.t.ans);
+  $('#fixmsg').innerHTML=good?'<b style="color:var(--ok)">Perfect — that is it.</b>':'Type <b>'+esc(it.t.ans)+'</b> to continue.';
+  if(good){$('#fixmsg').insertAdjacentHTML('afterend','<div style="height:12px"></div><button class="btn" onclick="next()">Next →</button>');
+    $('#fixinp').disabled=true;$('#fixinp').classList.add('good');}
+}
+function next(){CUR.i++;CUR.typed='';CUR.stage=CUR.mode==='lcwc'?'look':'ask';CUR.opts=null;CUR.picked=null;
+  CUR.chunks=null;CUR.bag=[];CUR.built=[];CUR.taken=[];
+  if(CUR.i>=CUR.q.length){bumpStreak();state.log.push({d:today(),m:CUR.mode,n:CUR.q.length,r:CUR.right});
+    if(CUR.mode==='test'){state.tests=state.tests||[];state.tests.push({d:today(),r:CUR.right,n:CUR.q.length});}
+    save();}
+  render();}
+function quit(){CUR.on=false;PICK.mode=null;render();}
+function doneView(){
+  const pct=Math.round(CUR.right/CUR.q.length*100);
+  const msg=pct>=90?'Outstanding. 👑':pct>=70?'Good work — nearly there.':'Every mistake you fixed is a mark you keep in the exam.';
+  const learn=CUR.mode==='learn';
+  if(CUR.mode==='test'){
+    const ts=state.tests||[],prev=ts.length>1?ts[ts.length-2]:null;
+    const base=5,delta=CUR.right-base;
+    return `<div class="card done">
+      <div class="big">${CUR.right>=20?'🏆':CUR.right>base?'📈':'📋'}</div>
+      <h2>${CUR.right} / ${CUR.q.length}</h2>
+      <p class="muted">In class on ${TEST_DATE} it was <b>5 / 25</b>.
+        ${delta>0?`That is <b>+${delta}</b> on the real test.`:delta===0?'Level with the real test — keep going.':''}</p>
+      ${prev?`<p class="small muted">Your last practice test: ${prev.r}/${prev.n}</p>`:''}
+      <div style="height:14px"></div>
+      <button class="btn" onclick="start('recall',null,10)">🎯 Drill the ones you missed</button>
+      <div style="height:10px"></div>
+      <button class="btn ghost" onclick="quit();go('home')">Back home</button>
+    </div>`;
+  }
+  const cat=CUR.cat?"'"+CUR.cat+"'":'null';
+  return `<div class="card done">
+    <div class="big">${learn?'🃏':pct>=90?'🏆':pct>=70?'🎉':'💪'}</div>
+    <h2>${learn?CUR.q.length+' cards reviewed':CUR.right+' / '+CUR.q.length+' first time'}</h2>
+    <p class="muted">${learn?'Now make it stick — try Listen &amp; Spell with the same words.':msg}</p>
+    <div style="height:14px"></div>
+    ${learn?`<button class="btn" onclick="start('spell',${cat},10)">✍️ Listen &amp; Spell</button><div style="height:10px"></div>`:''}
+    <button class="btn ${learn?'ghost':''}" onclick="start('${CUR.mode}',${cat},10)">Another round</button>
+    <div style="height:10px"></div>
+    <button class="btn ghost" onclick="quit();go('home')">Back home</button>
+  </div>`;
+}
+
+
+/* ============================================================
+   CHUNK RUSH — the game
+   Tap the chunks in order, against the clock, with decoy chunks
+   from other words mixed in. Tap-only: designed for a car seat.
+   Speed on chunks is what turns "I know it" into "I can write it".
+   ============================================================ */
+let GAME={on:false};
+/* ---------- high-score log ----------
+   Scores are only comparable within the same game length, so the 5-minute and
+   90-second boards are kept apart. */
+function pushScore(){
+  state.scores=state.scores||[];
+  state.scores.unshift({d:today(),s:GAME.score,c:GAME.cleared,w:GAME.slips,
+                        h:GAME.hints||0,tp:GAME.tips||0,secs:GAME.secs});
+  state.scores=state.scores.slice(0,60);
+  if(GAME.score>(state.best||0))state.best=GAME.score;
+  save();
+}
+function boardFor(secs){return (state.scores||[]).filter(x=>x.secs===secs).slice().sort((a,b)=>b.s-a.s);}
+function bestFor(secs){const b=boardFor(secs);return b.length?b[0].s:0;}
+function rankOf(secs,score){const l=boardFor(secs).map(x=>x.s);return l.indexOf(score)+1;}
+function runsFor(secs){return boardFor(secs).length;}
+function fmtDate(d){
+  const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const p=String(d).split('-');return p.length===3?(+p[2])+' '+M[+p[1]-1]:d;
+}
+const MEDAL=['🥇','🥈','🥉'];
+function boardHTML(secs,label){
+  const b=boardFor(secs);
+  if(!b.length)return `<div class="small muted">${label}: no runs yet.</div>`;
+  return `<div class="tiny" style="margin:14px 0 6px">${label} · ${b.length} run${b.length===1?'':'s'}</div>
+    ${b.slice(0,5).map((x,i)=>`<div class="sbrow">
+      <span class="rk">${MEDAL[i]||(i+1)+'.'}</span>
+      <b>${x.s}</b>
+      <span class="small muted" style="flex:1">${x.c} words${x.w?` · ${x.w} slip${x.w===1?'':'s'}`:''}${x.h?` · ${x.h}🎧`:''}${x.tp?` · ${x.tp}💡`:''}</span>
+      <span class="small muted">${fmtDate(x.d)}</span></div>`).join('')}`;
+}
+function scoreboardCard(){
+  const t=(state.tests||[]);
+  return `<div class="card">
+    <div class="row"><div style="flex:1"><div class="tiny">🏆 High scores</div></div>
+      ${state.scores&&state.scores.length?`<button class="btn ghost sm" onclick="if(confirm('Clear the high-score log? Word progress is not affected.')){state.scores=[];state.best=0;save();render()}">clear</button>`:''}</div>
+    ${boardHTML(300,'🚗 Five minutes')}
+    ${boardHTML(90,'⚡️ Ninety seconds')}
+    <div class="tiny" style="margin:16px 0 6px">📋 Mock test (25 words)</div>
+    <div class="sbrow"><span class="rk">·</span><b>5</b>
+      <span class="small muted" style="flex:1">the real class test</span>
+      <span class="small muted">${TEST_DATE}</span></div>
+    ${t.length?t.slice().reverse().slice(0,6).map(x=>`<div class="sbrow"><span class="rk">·</span><b>${x.r}</b>
+      <span class="small muted" style="flex:1">out of ${x.n} · practice</span>
+      <span class="small muted">${fmtDate(x.d)}</span></div>`).join(''):'<div class="small muted">No practice tests yet.</div>'}
+  </div>`;
+}
+function clock(t){t=Math.ceil(t);return t>=60?Math.floor(t/60)+':'+String(t%60).padStart(2,'0'):t+'s';}
+let GTIMER=null;
+function gameStart(secs){
+  const list=ALL.filter(w=>w.en||w.vi);
+  GAME={on:true,secs:secs,t:secs,score:0,combo:0,best:(state.best||0),cleared:0,slips:0,
+        pool:shuffle(list),pi:0,word:null,flash:null,over:false,hints:0,tips:0};
+  nextGameWord();
+  TAB='practice';render();
+  clearInterval(GTIMER);
+  GTIMER=setInterval(()=>{
+    if(!GAME.on){clearInterval(GTIMER);return;}
+    GAME.t=Math.max(0,GAME.t-0.1);
+    const bar=$('#gtime'),num=$('#gnum');
+    if(bar)bar.style.width=(GAME.t/GAME.secs*100)+'%';
+    if(num)num.textContent=clock(GAME.t);
+    if(GAME.t<=0){GAME.over=true;gameEnd();}
+  },100);
+}
+function nextGameWord(){
+  if(GAME.pi>=GAME.pool.length)GAME.pool=shuffle(GAME.pool),GAME.pi=0;
+  const w=GAME.pool[GAME.pi++];
+  const ans=w.cat==='nations'?w.term:w.term;
+  const c=chunks(w,ans);
+  /* decoys: chunks from other words, never one we still need */
+  const need=c.parts.slice();
+  let dec=[];
+  const others=shuffle(ALL.filter(x=>x.id!==w.id)).slice(0,14);
+  others.forEach(o=>{const oc=chunks(o,o.term);oc.parts.forEach(x=>{
+    if(need.indexOf(x)<0&&dec.indexOf(x)<0&&x.length<=6)dec.push(x);});});
+  dec=dec.slice(0,Math.min(5,Math.max(3,7-c.parts.length)));
+  GAME.word=w;GAME.target=ans;GAME.chunks=c;
+  GAME.slots=c.parts.length;GAME.built=[];GAME.mistake=0;GAME.flash=null;GAME.flashNeg=0;
+  GAME.bag=shuffle(c.parts.concat(dec));GAME.taken=[];
+}
+function placePart(k){
+  GAME.built.push(GAME.bag[k]);GAME.taken.push(k);
+  if(GAME.built.length<GAME.chunks.parts.length)return false;
+  GAME.combo++;GAME.cleared++;
+  const pts=(GAME.target.replace(/\s/g,'').length)*(GAME.mistake?1:Math.min(5,GAME.combo));
+  GAME.score+=pts;GAME.flash='+'+pts;GAME.flashNeg=0;
+  if(!GAME.mistake)score(GAME.word.id,true);   /* only unaided builds count */
+  say(GAME.target);render();
+  setTimeout(()=>{if(GAME.on&&!GAME.over){GAME.flash=null;nextGameWord();render();}},620);
+  return true;
+}
+/* a hint places the next chunk for her: 5 seconds off the clock, and the word
+   no longer counts as an unaided build */
+function gameHint(){
+  if(!GAME.on||GAME.over)return;
+  const want=GAME.chunks.parts[GAME.built.length];
+  const k=GAME.bag.findIndex((x,i)=>x===want&&GAME.taken.indexOf(i)<0);
+  if(k<0)return;
+  GAME.t=Math.max(0,GAME.t-5);GAME.mistake=1;GAME.tips=(GAME.tips||0)+1;
+  GAME.flash='−5s';GAME.flashNeg=1;
+  const done=placePart(k);
+  if(!done){render();setTimeout(()=>{if(GAME.on&&!GAME.over){GAME.flash=null;GAME.flashNeg=0;render();}},800);}
+  if(GAME.t<=0){gameEnd();}
+}
+function gameTap(k){
+  if(!GAME.on||GAME.over)return;
+  const part=GAME.bag[k],want=GAME.chunks.parts[GAME.built.length];
+  if(part===want){
+    if(placePart(k))return;
+  }else{
+    GAME.combo=0;GAME.mistake=1;GAME.slips++;
+    GAME.t=Math.max(0,GAME.t-3);GAME.bad=k;
+    setTimeout(()=>{GAME.bad=null;if(GAME.on)render();},320);
+  }
+  render();
+}
+/* hearing the word is not retrieving it: 5 points, and the word no longer
+   counts as a clean build for the review schedule */
+function gameHear(){
+  if(!GAME.on||GAME.over)return;
+  GAME.score=Math.max(0,GAME.score-5);
+  GAME.mistake=1;GAME.hints=(GAME.hints||0)+1;GAME.combo=0;
+  GAME.flash='−5';GAME.flashNeg=1;
+  say(GAME.target);render();
+  setTimeout(()=>{if(GAME.on&&!GAME.over){GAME.flash=null;GAME.flashNeg=0;render();}},800);
+}
+function gameSkip(){if(!GAME.on)return;GAME.t=Math.max(0,GAME.t-5);GAME.combo=0;nextGameWord();render();}
+function gameEnd(){
+  clearInterval(GTIMER);GAME.over=true;
+  GAME.prevBest=bestFor(GAME.secs);
+  GAME.rec=GAME.score>GAME.prevBest&&GAME.score>0;
+  state.games=(state.games||0)+1;
+  pushScore();bumpStreak();save();render();
+}
+function gameQuit(){clearInterval(GTIMER);GAME={on:false};PICK.mode=null;render();}
+function gameView(){
+  if(GAME.over){
+    const rec=GAME.rec,rank=rankOf(GAME.secs,GAME.score),runs=runsFor(GAME.secs);
+    return `<div class="card done">
+      <div class="big">${rec?'🥇':rank<=3?MEDAL[rank-1]:GAME.cleared>=10?'🎉':'⏱'}</div>
+      <h2>${GAME.score} points</h2>
+      <p class="muted">${GAME.cleared} word${GAME.cleared===1?'':'s'} built${GAME.slips?` · ${GAME.slips} wrong tap${GAME.slips===1?'':'s'}`:' · not one wrong tap!'}${GAME.hints?` · ${GAME.hints} listen${GAME.hints===1?'':'s'} (−${GAME.hints*5} pts)`:''}${GAME.tips?` · ${GAME.tips} hint${GAME.tips===1?'':'s'} (−${GAME.tips*5}s)`:''}</p>
+      ${!GAME.hints&&!GAME.tips&&GAME.cleared>2?'<p><span class="pill">🧠 No hints, no listens — all from memory</span></p>':''}
+      ${rec?`<p><span class="pill">🥇 New personal best${GAME.prevBest?` — beat ${GAME.prevBest}`:''}</span></p>`
+            :`<p class="small muted">#${rank} of your ${runs} ${GAME.secs===300?'five-minute':'ninety-second'} runs · best ${GAME.prevBest}</p>`}
+      <div style="text-align:left;max-width:420px;margin:14px auto 0">${boardHTML(GAME.secs,'Top scores')}</div>
+      <div style="height:16px"></div>
+      <button class="btn" onclick="gameStart(${GAME.secs})">Play again</button>
+      <div style="height:10px"></div>
+      <button class="btn ghost" onclick="gameQuit();go('practice')">See all scores</button>
+    </div>`;
+  }
+  const w=GAME.word,c=GAME.chunks;
+  const prompt=w.cat==='nations'
+    ? (state.vi&&w.vi?w.vi:'the country')+' — build the country'
+    : (w.en||w.vi);
+  return `<div class="card" style="padding:14px 16px">
+    <div class="gtop">
+      <button class="btn ghost sm" onclick="gameQuit()">✕</button>
+      <div class="gstat"><b id="gnum">${clock(GAME.t)}</b><span>left</span></div>
+      <div class="gstat"><b>${GAME.score}</b><span>points</span></div>
+      <div class="gstat"><b>${GAME.cleared}</b><span>built</span></div>
+    </div>
+    <div class="gbar"><i id="gtime" style="width:${GAME.t/GAME.secs*100}%"></i></div>
+  </div>
+  <div class="gcard">
+    ${GAME.combo>1?`<div class="combo">🔥 ${GAME.combo} in a row · ×${Math.min(5,GAME.combo)}</div>`:''}
+    ${GAME.flash?`<div class="float ${GAME.flashNeg?'neg':''}">${GAME.flash}</div>`:''}
+    <div class="prompt">Build the ${/phrasal|expression|phrase/.test(w.pos||'')?'phrase':'word'}</div>
+    <div class="qdef" style="font-size:20px">${esc(prompt)}</div>
+    ${state.vi&&w.vi&&w.cat!=='nations'?`<div class="qvi" style="font-size:15px">🇻🇳 ${esc(w.vi)}</div>`:''}
+    <div class="gslots">
+      ${c.parts.map((p,i)=>`<div class="slot ${i<GAME.built.length?'done':''}">${i<GAME.built.length?esc(GAME.built[i]):'&nbsp;'}</div>`).join('')}
+    </div>
+    <div class="gbag">
+      ${GAME.bag.map((p,k)=>`<button class="tile ${GAME.taken.includes(k)?'gone':''} ${GAME.bad===k?'bad':''}"
+        onclick="gameTap(${k})">${esc(p)}</button>`).join('')}
+    </div>
+    <div class="ghelp">
+      <button onclick="gameHint()"><i>💡</i>next chunk<u>−5 sec</u></button>
+      <button onclick="gameHear()"><i>🔊</i>hear it<u>−5 pts</u></button>
+      <button onclick="gameSkip()"><i>⏭</i>skip<u>−5 sec</u></button>
+    </div>
+  </div>`;
+}
+
+/* ---------- WORDS ---------- */
+let WF={q:'',cat:'',open:null};
+function wordsView(){
+  const list=ALL.filter(w=>{
+    if(WF.cat&&w.cat!==WF.cat)return false;
+    if(!WF.q)return true;
+    const s=(w.term+' '+(w.nat||'')+' '+(w.en||'')+' '+(w.vi||'')).toLowerCase();
+    return s.includes(WF.q.toLowerCase());
+  });
+  return `<div class="card">
+    <input class="search" id="q" placeholder="🔍 search a word or meaning" value="${esc(WF.q)}"
+      oninput="WF.q=this.value;renderList()">
+    <div class="filters" id="filters">
+      <button class="${WF.cat?'':'on'}" onclick="WF.cat='';render()">All ${ALL.length}</button>
+      ${Object.keys(CATS).map(k=>`<button class="${WF.cat===k?'on':''}" onclick="WF.cat='${k}';render()">
+        ${CATS[k].icon} ${CATS[k].name.split(' ')[0]} ${ALL.filter(w=>w.cat===k).length}</button>`).join('')}
+    </div>
+  </div>
+  <div class="card" id="list">${listHTML(list)}</div>
+  <div class="card">
+    <div class="tiny" style="margin-bottom:10px">Grammar &amp; pattern notes from the lesson</div>
+    ${REFERENCE.map(r=>`<div style="margin-bottom:16px">
+      <b>${r.title}</b>
+      <table style="width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px">
+      ${r.rows.map(row=>`<tr>${row.filter(c=>c!=='').map((c,i)=>
+        `<td style="padding:7px 8px;border-bottom:1px solid var(--line);${i===0?'width:30%;font-weight:700':'color:var(--ink2)'}">${c}</td>`).join('')}</tr>`).join('')}
+      </table></div>`).join('')}
+  </div>`;
+}
+function listHTML(list){
+  if(!list.length)return '<p class="muted center">Nothing found.</p>';
+  return list.map(w=>{
+    const b=band(w.id),p=state.p[w.id]||{};
+    const open=WF.open===w.id;
+    return `<div class="witem">
+      <button class="whead" onclick="WF.open='${WF.open===w.id?'':w.id}';renderList()">
+        <span class="chip ${b==='strong'?'strong':(b==='new'?'new':'learn')}">${b==='strong'?'✓':b==='new'?'•':'↻'}</span>
+        <span class="t">${esc(w.term)}${w.nat?` <span class="muted" style="font-weight:400">→ ${esc(w.nat)}</span>`:''}
+          ${w.flag?`<s>${w.flag.src==='elena'?'📝 you wrote: ':'🧑‍🏫 book says: '}${esc(w.flag.wrote)}</s>`:''}</span>
+        <span class="muted">${open?'▲':'▼'}</span>
+      </button>
+      ${open?`<div class="wbody">
+        <button class="btn ghost sm" onclick="say('${jsq(w.term)}')">🔊 ${esc(w.term)}</button>
+        ${w.nat?`<button class="btn ghost sm" style="margin-left:6px" onclick="say('${jsq(w.nat)}')">🔊 ${esc(w.nat)}</button>`:''}
+        ${w.cat==='nations'
+          ?`<div class="lbl">Nationality</div>${esc(w.nat||'')}<div class="lbl">Language</div>${esc(w.lang||'')}`
+          :`<div class="lbl">Meaning</div>${esc(w.en||'')}`}
+        ${w.vi?`<div class="lbl">Vietnamese</div>${esc(w.vi)}`:''}
+        ${w.opp?`<div class="lbl">Opposite</div>${esc(w.opp)}`:''}
+        ${w.ex?`<div class="qex" style="margin-top:10px">${esc(w.ex)}</div>`:''}
+        ${w.note?`<div class="lbl">Spelling tip</div>${w.note}`:''}
+        ${w.flag?`<div class="note"><b>${w.flag.src==='elena'?'📝 Copy slip':'🧑‍🏫 The book is wrong here'}:</b> ${w.flag.text}</div>`:''}
+        <div class="small muted" style="margin-top:10px">Box ${p.b||0}/5 · right ${p.r||0} · wrong ${p.w||0} · ${w.week||''}</div>
+      </div>`:''}
+    </div>`;}).join('');
+}
+function renderList(){
+  const list=ALL.filter(w=>{
+    if(WF.cat&&w.cat!==WF.cat)return false;
+    if(!WF.q)return true;
+    const s=(w.term+' '+(w.nat||'')+' '+(w.en||'')+' '+(w.vi||'')).toLowerCase();
+    return s.includes(WF.q.toLowerCase());
+  });
+  $('#list').innerHTML=listHTML(list);
+}
+
+/* ---------- SLIPS ---------- */
+function slipsView(){
+  const mine=ALL.filter(w=>w.flag&&w.flag.src==='elena')
+    .map(w=>({wrote:w.flag.wrote,right:w.flag.right||w.term,text:w.flag.text}))
+    .concat(EXTRA_FLAGS.filter(f=>f.src==='elena').map(f=>({wrote:f.wrote,right:f.right,text:f.text})));
+  const teach=ALL.filter(w=>w.flag&&w.flag.src==='teacher')
+    .map(w=>({wrote:w.flag.wrote,right:w.flag.right||w.term,text:w.flag.text}));
+  const card=(o,kind)=>`<div class="witem">
+    <div class="row" style="align-items:flex-start">
+      <div style="flex:1">
+        <div style="font-size:15px"><s style="color:var(--coral)">${esc(o.wrote)}</s>
+          &nbsp;→&nbsp; <b>${esc(o.right)}</b></div>
+        <div class="small muted" style="margin-top:6px">${o.text}</div>
+      </div>
+      <button class="btn ghost sm" onclick="say('${jsq(o.right)}')">🔊</button>
+    </div></div>`;
+  return `<div class="card">
+    <h2 style="font-size:20px">Corrections log</h2>
+    <p class="small muted" style="margin:8px 0 0">Two different things go wrong in a notebook. Keeping them apart matters:
+    the first list is yours to drill, the second list is worth asking your teacher about.</p>
+  </div>
+  <div class="card">
+    <div class="row" style="margin-bottom:6px"><span class="chip trap">📝 ${mine.length} copy slips</span>
+      <span class="small muted">words copied down or spelled wrongly</span></div>
+    ${mine.map(o=>card(o)).join('')}
+    <div style="height:14px"></div>
+    <button class="btn coral" onclick="start('traps',null,${Math.min(10,Math.max(1,trapWords().length))})">🪤 Drill these now</button>
+  </div>
+  <div class="card">
+    <div class="row" style="margin-bottom:6px"><span class="chip">🧑‍🏫 ${teach.length} to check with the teacher</span></div>
+    <p class="small muted" style="margin:0 0 6px">These are meanings or opposites written in the notebook that are not right in English.
+    Elena copied them faithfully — the note itself is the problem. Polite way to ask: <i>"Miss, could you check this one for me?"</i></p>
+    ${teach.map(o=>card(o)).join('')}
+  </div>`;
+}
+
+/* ---------- MORE ---------- */
+function moreView(){
+  const done=state.log.length,acc=state.log.reduce((a,l)=>a+l.r,0),tot=state.log.reduce((a,l)=>a+l.n,0);
+  return `<div class="card">
+    <h2 style="font-size:20px">Adding next week's words</h2>
+    <ol class="small" style="margin:10px 0 0;padding-left:22px;line-height:1.7">
+      <li>Photograph the new notebook pages.</li>
+      <li>Send them to Claude in this project and say <i>"add these to Elena's Word Lab"</i>.</li>
+      <li>You get back an updated file (and a JSON block). Replace the old file — progress is kept, because scores are stored on the tablet, not in the file.</li>
+    </ol>
+    <div class="note" style="background:var(--teal-soft);border-color:var(--teal-line)"><span style="color:var(--teal-text)">
+      <b>Or paste it yourself:</b> drop a JSON array of new words below and they appear instantly on this device.
+    </span></div>
+    <textarea class="imp" id="imp" placeholder='[{"id":"x01","cat":"pv1","week":"Week 2 · Unit 2","term":"give up","en":"stop trying","vi":"bỏ cuộc","focus":["up"],"ex":"Never give up."}]'></textarea>
+    <div class="hintrow"><button class="btn sm" onclick="importWords()">Add words</button>
+      <button class="btn ghost sm" onclick="exportWords()">Copy all words as JSON</button></div>
+  </div>
+  ${scoreboardCard()}
+  <div class="card">
+    <div class="tiny">Progress</div>
+    <p class="small muted" style="margin:8px 0 12px">${done} sessions finished · ${tot?Math.round(acc/tot*100):0}% first-time accuracy · streak ${state.streak.n||0} day${state.streak.n===1?'':'s'}</p>
+    <div class="grid2">
+      <button class="btn ghost sm" onclick="cycleTheme()">${(state.theme||'auto')==='dark'?'🌙 Dark':(state.theme||'auto')==='light'?'☀️ Light':'🌗 Auto'} theme</button>
+      <button class="btn ghost sm" onclick="state.vi=state.vi?0:1;save();render()">🇻🇳 Vietnamese: ${state.vi?'on':'off'}</button>
+      <button class="btn ghost sm" onclick="state.voice=state.voice?0:1;save();render()">🔊 Sound: ${state.voice?'on':'off'}</button>
+      <button class="btn ghost sm" onclick="backup()">⬇︎ Back up progress</button>
+      <button class="btn ghost sm" onclick="restore()">⬆︎ Restore progress</button>
+    </div>
+    <div style="height:10px"></div>
+    <button class="btn ghost sm" onclick="if(confirm('Reset every score? Words stay, progress goes.')){state.p={};state.log=[];state.streak={n:0,last:''};save();render()}">↺ Reset scores</button>
+  </div>
+  <div class="card">
+    <div class="tiny">Why these drills, and in this order</div>
+    <div class="small muted" style="margin-top:10px;line-height:1.65">
+      <p><b>1 · Look · Cover · Write · Check.</b> The classic explicit-spelling routine used in British primary
+      and secondary classrooms. The <i>cover</i> step is the active ingredient: the word has to be produced from
+      memory, not copied. Copying a word ten times teaches almost nothing; writing it once from memory teaches a lot.</p>
+      <p><b>2 · Chunking into syllables and morphemes.</b> Working memory holds about four items, and
+      <i>i-r-r-e-s-p-o-n-s-i-b-l-e</i> is fourteen. As <b>ir·re·spon·si·ble</b> it is five, and as
+      <b>ir + responsible</b> it is two. Older learners gain the most from the <i>meaning</i> chunks:
+      un + reli + able, thought + less, dis + organis + ed.</p>
+      <p><b>3 · Retrieval practice, not review.</b> Re-reading a word list feels productive and is one of the
+      weakest ways to learn. Being tested on it — even when you get it wrong — is one of the strongest.
+      Every mode here asks Elena to produce something.</p>
+      <p><b>4 · Meaning → phrase is a different skill from spelling.</b> Recognising <i>hit it off</i> on a page is
+      easy; producing it from "like each other immediately" is what her class test asked for, and it is why
+      5/25 can happen after a week of highlighting notes. The <b>Meaning → phrase</b> and <b>Mock test</b>
+      modes train exactly that, with no audio and no first-letter cue.</p>
+      <p><b>5 · Fluency, not just accuracy.</b> <i>Chunk Rush</i> looks like a game and is one, but the clock is doing
+      real work: it forces her to recognise chunks fast enough that they become automatic, and the decoy chunks from
+      other words force her to discriminate between similar endings (-ian / -ion, -er / -or). Help is available but always priced: a hint that
+      places the next chunk costs 5 seconds, and hearing the whole word costs 5 points — because listening to the
+      answer is not retrieving it — the button stays available for when she is
+      genuinely stuck, but it is never the cheapest route. Words she builds with no wrong taps and no listens count
+      towards her review schedule; words she stumbles on are left alone rather than punished.</p>
+      <p><b>6 · Expanding intervals.</b> Words come back after 1, 2, 4, 8 and 16 days. Spacing beats cramming for
+      long-term retention by a wide margin, and it is the whole reason this app is a running tracker rather than
+      a weekly worksheet.</p>
+      <p><b>7 · Immediate, letter-level feedback.</b> "Wrong" teaches nothing. Seeing that
+      <i>cal<b>c</b>ulat<b>o</b>r</i> lost a <b>c</b> and ended in <b>-er</b> targets the exact grapheme that failed.</p>
+      <p><b>8 · Her own errors as material.</b> Her real slips are drilled directly — but a wrong spelling is never
+      the last thing she sees. Every multiple-choice item ends with her typing the correct form, so the correct
+      version is what gets rehearsed.</p>
+      <p><b>9 · Say it while you write it.</b> Tap any syllable chip to hear it. Linking sound to letters
+      (phoneme–grapheme mapping) is what stops <i>sesitive</i> and <i>calulater</i>: those are listening errors as
+      much as writing errors.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="tiny">How the memory schedule works</div>
+    <p class="small muted" style="margin:8px 0 0">Each word sits in a box from 0 to 5. Spell it right and it moves up a box and disappears for
+    1, 2, 4, 8 then 16 days. Spell it wrong and it drops back and returns in the same session. A word is
+    <b>Strong</b> at box 4 — that means she has spelled it correctly on four separate days, which is roughly
+    the point where spelling sticks.</p>
+  </div>`;
+}
+function importWords(){
+  try{
+    const arr=JSON.parse($('#imp').value);
+    if(!Array.isArray(arr))throw 0;
+    const ids=new Set(ALL.map(w=>w.id));
+    let n=0;arr.forEach(w=>{if(w&&w.term&&!ids.has(w.id)){state.extra.push(w);n++;}});
+    save();rebuild();alert(n+' word(s) added.');render();
+  }catch(e){alert('That is not valid JSON. Check the brackets and quotes.');}
+}
+function exportWords(){
+  const t=JSON.stringify(ALL,null,1);
+  navigator.clipboard?navigator.clipboard.writeText(t).then(()=>alert('All '+ALL.length+' words copied to the clipboard.'),()=>dl('words.json',t)):dl('words.json',t);
+}
+function backup(){dl('elena-progress-'+today()+'.json',JSON.stringify({p:state.p,streak:state.streak,log:state.log,extra:state.extra}));}
+function restore(){
+  const i=document.createElement('input');i.type='file';i.accept='.json';
+  i.onchange=()=>{const f=i.files[0];const r=new FileReader();
+    r.onload=()=>{try{const d=JSON.parse(r.result);Object.assign(state,d);save();rebuild();alert('Progress restored.');render();}
+    catch(e){alert('Could not read that file.');}};r.readAsText(f);};
+  i.click();
+}
+function dl(name,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:'application/json'}));
+  a.download=name;a.click();
+}
+
+render();
+</script></body></html>
