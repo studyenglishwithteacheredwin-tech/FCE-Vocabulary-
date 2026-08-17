@@ -178,39 +178,47 @@ nav.tabs button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px 
 .buildbox{margin-top:16px;min-height:74px;border:2px dashed var(--line);border-radius:14px;display:grid;
   place-items:center;font-size:27px;font-weight:800;background:var(--card2);padding:12px;word-break:break-word;text-align:center}
 
-/* ---------- CHUNK RUSH — sized for a moving car ---------- */
-.gbar{height:14px;border-radius:99px;background:var(--line2);overflow:hidden;margin-top:10px}
+/* ---------- CHUNK RUSH — one screen, no scrolling ---------- */
+body.playing header.top,body.playing nav.tabs{display:none}
+body.playing{padding-bottom:0}
+body.playing #app{padding:8px 10px 0}
+body.playing .card,body.playing .gcard{margin-bottom:8px}
+
+.gbar{height:10px;border-radius:99px;background:var(--line2);overflow:hidden;margin-top:8px}
 .gbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--coral));transition:width .1s linear}
-.gtop{display:flex;gap:10px;align-items:center}
-.gstat{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;text-align:center;flex:1}
-.gstat b{display:block;font-size:25px;font-weight:800;line-height:1.1}
-.gstat span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink2)}
-.gcard{background:var(--card);border:1px solid var(--line);border-radius:22px;
-  padding:22px 18px;box-shadow:var(--sh);position:relative;overflow:hidden}
-.gcard .qdef{font-size:25px;line-height:1.28}
-.gslots{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 6px;min-height:70px;align-items:center}
-.slot{min-width:64px;height:68px;border:2.5px dashed var(--line);border-radius:14px;display:grid;place-items:center;
-  font-size:26px;font-weight:800;padding:0 12px;background:var(--card2)}
+.gtop{display:flex;gap:7px;align-items:center}
+.gtop .btn.sm{min-height:44px;padding:8px 12px;flex:none}
+.gstat{background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:6px 8px;text-align:center;flex:1;min-width:0}
+.gstat b{display:block;font-size:20px;font-weight:800;line-height:1.15}
+.gstat span{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2)}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:15px 13px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.gcard .prompt{font-size:13px;margin-bottom:2px}
+.gcard .qdef{font-size:clamp(17px,4.6vw,21px);line-height:1.25}
+.gcard .qvi{margin-top:5px;font-size:15px}
+.gslots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px;min-height:54px;align-items:center}
+.slot{min-width:50px;height:52px;border:2.5px dashed var(--line);border-radius:12px;display:grid;place-items:center;
+  font-size:21px;font-weight:800;padding:0 9px;background:var(--card2)}
 .slot.done{border-style:solid;border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
-.gbag{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-.tile{font-size:27px;font-weight:800;padding:17px 22px;border-radius:16px;background:var(--card);
-  border:2.5px solid var(--teal-line);color:var(--ink);box-shadow:0 4px 0 var(--teal-line);min-height:74px;min-width:74px}
+.gbag{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.tile{font-size:clamp(19px,5.4vw,23px);font-weight:800;padding:13px 15px;border-radius:14px;background:var(--card);
+  border:2.5px solid var(--teal-line);color:var(--ink);box-shadow:0 4px 0 var(--teal-line);min-height:60px;min-width:58px}
 .tile:active{transform:translateY(4px);box-shadow:none}
 .tile.gone{opacity:.3;pointer-events:none;border-color:var(--line);box-shadow:none;border-style:dashed}
 .tile.bad{animation:shk .28s;border-color:var(--coral);background:var(--coral-soft);box-shadow:0 4px 0 var(--coral-line)}
 @keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.combo{position:absolute;top:16px;right:18px;font-weight:800;color:var(--gold-ink);font-size:16px}
-.float{position:absolute;left:50%;top:10px;transform:translateX(-50%);font-size:34px;font-weight:800;
+.combo{position:absolute;top:12px;right:13px;font-weight:800;color:var(--gold-ink);font-size:14px}
+.float{position:absolute;left:50%;top:8px;transform:translateX(-50%);font-size:30px;font-weight:800;
   color:var(--ok);animation:up .9s ease-out forwards;pointer-events:none;z-index:5;
   text-shadow:0 0 12px var(--card),0 0 22px var(--card),0 2px 0 var(--card)}
 .float.neg{color:var(--coral)}
 @keyframes up{0%{opacity:0;transform:translate(-50%,26px) scale(.7)}25%{opacity:1;transform:translate(-50%,10px) scale(1.15)}100%{opacity:0;transform:translate(-50%,-16px) scale(1)}}
-.ghelp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-.ghelp button{min-height:64px;border-radius:14px;background:var(--card2);border:1.5px solid var(--line);
-  font-size:14.5px;font-weight:800;color:var(--ink2);display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:3px;line-height:1.2;padding:8px 4px}
-.ghelp button i{font-style:normal;font-size:19px}
-.ghelp button u{text-decoration:none;font-size:12px;font-weight:700;opacity:.85}
+.ghelp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.ghelp button{min-height:54px;border-radius:12px;background:var(--card2);border:1.5px solid var(--line);
+  font-size:13.5px;font-weight:800;color:var(--ink2);display:flex;flex-direction:row;flex-wrap:wrap;
+  align-items:center;justify-content:center;gap:5px;line-height:1.15;padding:6px 4px}
+.ghelp button i{font-style:normal;font-size:16px}
+.ghelp button u{text-decoration:none;font-size:11.5px;font-weight:700;opacity:.8;width:100%;text-align:center}
 .ghelp button:active{transform:translateY(2px)}
 .pill{display:inline-block;background:var(--gold-soft);border:1px solid var(--gold-line);color:var(--gold-ink);
   font-weight:800;font-size:13.5px;padding:6px 12px;border-radius:99px}
@@ -246,12 +254,22 @@ textarea.imp{width:100%;min-height:130px;padding:13px;border:1.5px solid var(--l
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
+@media (max-height:740px){
+  body.playing #app{padding-top:4px}
+  .gcard{padding:12px 11px}
+  .gslots{min-height:48px;margin:9px 0 2px}
+  .slot{height:46px;min-width:44px;font-size:19px}
+  .tile{min-height:56px;min-width:54px;padding:11px 13px}
+  .gbag{gap:7px;margin-top:10px}
+  .ghelp{margin-top:11px}
+  .ghelp button{min-height:50px}
+  .gstat b{font-size:18px}
+}
 @media (max-width:560px){
   .grid2,.grid3{grid-template-columns:1fr}
   .hero{flex-direction:column;text-align:center}
   .qdef{font-size:20px}
   .gcard .qdef{font-size:21px}
-  .tile{font-size:24px;min-height:68px;min-width:66px;padding:15px 18px}
   nav.tabs button span.lbl{display:none}
 }
 </style>
@@ -960,6 +978,7 @@ function render(){
   renderTabs();
   $('#streak').innerHTML='🔥 '+(state.streak.n||0);
   const v=$('#view');
+  document.body.classList.toggle('playing',!!GAME.on&&!GAME.over);
   if(GAME.on){v.innerHTML=gameView();return;}
   if(CUR.on){v.innerHTML=sessionView();afterSession();return;}
   if(TAB==='home')v.innerHTML=homeView();
@@ -1590,7 +1609,7 @@ function gameView(){
   const prompt=w.cat==='nations'
     ? (state.vi&&w.vi?w.vi:'the country')+' — build the country'
     : (w.en||w.vi);
-  return `<div class="card" style="padding:14px 16px">
+  return `<div class="card" style="padding:10px 11px">
     <div class="gtop">
       <button class="btn ghost sm" onclick="gameQuit()">✕</button>
       <div class="gstat"><b id="gnum">${clock(GAME.t)}</b><span>left</span></div>
